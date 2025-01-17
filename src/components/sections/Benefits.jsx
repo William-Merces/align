@@ -1,6 +1,7 @@
-// src/components/sections/Benefits.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '../../context/theme/ThemeContext';
 import {
     MessageSquare,
     TrendingDown,
@@ -12,117 +13,176 @@ import {
 
 const benefits = [
     {
+        id: 'communication',
         icon: MessageSquare,
-        title: 'Comunicação mais eficiente',
-        description: 'Reduza ruídos e aumente a clareza na comunicação entre equipes e departamentos.'
+        color: 'blue'
     },
     {
+        id: 'costs',
         icon: TrendingDown,
-        title: 'Redução de custos operacionais',
-        description: 'Otimize recursos e reduza gastos desnecessários com processos mais eficientes.'
+        color: 'green'
     },
     {
+        id: 'productivity',
         icon: Zap,
-        title: 'Aumento de produtividade',
-        description: 'Acelere entregas e melhore resultados com processos otimizados e integrados.'
+        color: 'yellow'
     },
     {
+        id: 'engagement',
         icon: Users,
-        title: 'Maior engajamento',
-        description: 'Promova melhor colaboração e motivação entre as equipes com comunicação clara.'
+        color: 'purple'
     },
     {
+        id: 'processes',
         icon: Settings,
-        title: 'Processos otimizados',
-        description: 'Automatize e simplifique fluxos de trabalho para maior eficiência operacional.'
+        color: 'red'
     },
     {
+        id: 'support',
         icon: Globe,
-        title: 'Suporte multilíngue',
-        description: 'Comunique-se efetivamente com equipes e clientes em diferentes idiomas e culturas.'
+        color: 'indigo'
     }
 ];
 
-const BenefitCard = ({ benefit, index }) => {
-    const Icon = benefit.icon;
-
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
-        >
-            <div className="rounded-full bg-primary-50 p-4 mb-4">
-                <Icon className="h-6 w-6 text-primary-600" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                {benefit.title}
-            </h3>
-            <p className="text-gray-600">
-                {benefit.description}
-            </p>
-        </motion.div>
-    );
-};
-
 const Benefits = () => {
+    const { theme } = useTheme();
+    const { t } = useTranslation();
+
+    const getColorClasses = (color) => {
+        const baseClasses = theme === 'dark' ? {
+            blue: 'bg-blue-900 text-blue-400',
+            green: 'bg-green-900 text-green-400',
+            yellow: 'bg-yellow-900 text-yellow-400',
+            purple: 'bg-purple-900 text-purple-400',
+            red: 'bg-red-900 text-red-400',
+            indigo: 'bg-indigo-900 text-indigo-400'
+        } : {
+            blue: 'bg-blue-100 text-blue-600',
+            green: 'bg-green-100 text-green-600',
+            yellow: 'bg-yellow-100 text-yellow-600',
+            purple: 'bg-purple-100 text-purple-600',
+            red: 'bg-red-100 text-red-600',
+            indigo: 'bg-indigo-100 text-indigo-600'
+        };
+        return baseClasses[color];
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5 }
+        }
+    };
+
+    const bgClass = theme === 'dark' ? 'bg-gray-900' : 'bg-gradient-to-b from-white to-gray-50';
+    const textClass = theme === 'dark' ? 'text-white' : 'text-gray-900';
+    const cardBgClass = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
+    const cardHoverClass = theme === 'dark' ? 'hover:bg-gray-700' : 'hover:shadow-lg';
+
     return (
-        <section className="section bg-gradient-to-b from-white to-gray-50">
+        <section className={`section ${bgClass}`}>
             <div className="container-custom">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                        Benefícios que Transformam seu Negócio
-                    </h2>
-                    <p className="text-lg text-gray-600">
-                        Descubra como nossa solução integrada pode impulsionar a eficiência e
-                        os resultados da sua empresa.
-                    </p>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className={`text-3xl sm:text-4xl font-bold ${textClass} mb-4`}
+                    >
+                        {t('benefits.title')}
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}
+                    >
+                        {t('benefits.subtitle')}
+                    </motion.p>
                 </div>
 
                 {/* Benefits Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {benefits.map((benefit, index) => (
-                        <BenefitCard key={index} benefit={benefit} index={index} />
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {benefits.map((benefit) => {
+                        const Icon = benefit.icon;
+                        return (
+                            <motion.div
+                                key={benefit.id}
+                                variants={itemVariants}
+                                className={`${cardBgClass} rounded-xl shadow-sm ${cardHoverClass} p-6 transition-all duration-300`}
+                            >
+                                <div className={`rounded-lg w-12 h-12 flex items-center justify-center mb-4 ${getColorClasses(benefit.color)}`}>
+                                    <Icon className="h-6 w-6" />
+                                </div>
+                                <h3 className={`text-xl font-semibold ${textClass} mb-3`}>
+                                    {t(`benefits.items.${benefit.id}.title`)}
+                                </h3>
+                                <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
+                                    {t(`benefits.items.${benefit.id}.description`)}
+                                </p>
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
+
+                {/* Quick Value Props */}
+                <div className="mt-16 grid md:grid-cols-3 gap-6">
+                    {['efficiency', 'satisfaction', 'roi'].map((prop, index) => (
+                        <motion.div
+                            key={prop}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className={`text-center ${cardBgClass} p-6 rounded-xl`}
+                        >
+                            <div className={`text-2xl font-bold text-primary-600 mb-2`}>
+                                {t(`benefits.stats.${prop}.value`)}
+                            </div>
+                            <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
+                                {t(`benefits.stats.${prop}.label`)}
+                            </p>
+                        </motion.div>
                     ))}
                 </div>
 
-                {/* Results Preview */}
-                <div className="mt-16 bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-                        <div className="p-8 text-center">
-                            <div className="text-4xl font-bold text-primary-600 mb-2">40%</div>
-                            <p className="text-gray-600">Redução em tempo de resposta</p>
-                        </div>
-                        <div className="p-8 text-center">
-                            <div className="text-4xl font-bold text-primary-600 mb-2">65%</div>
-                            <p className="text-gray-600">Aumento em produtividade</p>
-                        </div>
-                        <div className="p-8 text-center">
-                            <div className="text-4xl font-bold text-primary-600 mb-2">90%</div>
-                            <p className="text-gray-600">Satisfação dos clientes</p>
-                        </div>
-                    </div>
-                </div>
-
                 {/* CTA Section */}
-                <div className="mt-12 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true }}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-12 text-center"
+                >
+                    <a
+                        href="/contact"
+                        className={`btn ${theme === 'dark' ? 'btn-white' : 'btn-primary'}`}
                     >
-                        <a href="#diagnostic" className="btn btn-primary">
-                            Faça um Diagnóstico Gratuito
-                        </a>
-                        <p className="mt-4 text-sm text-gray-600">
-                            Descubra como podemos ajudar sua empresa em menos de 5 minutos
-                        </p>
-                    </motion.div>
-                </div>
+                        {t('benefits.cta')}
+                    </a>
+                    <p className={`mt-4 text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                        {t('benefits.ctaSubtext')}
+                    </p>
+                </motion.div>
             </div>
         </section>
     );

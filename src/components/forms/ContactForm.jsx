@@ -1,32 +1,14 @@
-// src/components/forms/ContactForm.jsx
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
-import {
-    Send,
-    Loader2
-} from 'lucide-react';
-
-const serviceOptions = [
-    'Desenvolvimento',
-    'Customer Support',
-    'Video Editing',
-    'Marketing',
-    'Project Management',
-    'Admin',
-    'Accounting',
-    'Design'
-];
-
-const budgetRanges = [
-    'Até R$ 5.000',
-    'R$ 5.000 - R$ 10.000',
-    'R$ 10.000 - R$ 20.000',
-    'R$ 20.000 - R$ 50.000',
-    'Acima de R$ 50.000'
-];
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '../../context/theme/ThemeContext';
+import { Send, Loader2, Check } from 'lucide-react';
+import { serviceIds } from '../../lib/constants';
 
 const ContactForm = () => {
+    const { theme } = useTheme();
+    const { t } = useTranslation();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
@@ -40,12 +22,12 @@ const ContactForm = () => {
     const onSubmit = async (data) => {
         setIsSubmitting(true);
         try {
-            // Aqui você implementaria a lógica de envio do formulário
-            await new Promise(resolve => setTimeout(resolve, 2000)); // Simulação
+            // Simulação de envio - substitua pela sua lógica real
+            await new Promise(resolve => setTimeout(resolve, 2000));
             setSubmitted(true);
             reset();
         } catch (error) {
-            console.error('Erro ao enviar formulário:', error);
+            console.error('Error submitting form:', error);
         } finally {
             setIsSubmitting(false);
         }
@@ -58,284 +40,188 @@ const ContactForm = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-8"
             >
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Send className="h-8 w-8 text-green-600" />
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${
+                    theme === 'dark' ? 'bg-green-900' : 'bg-green-100'
+                }`}>
+                    <Check className={`h-8 w-8 ${
+                        theme === 'dark' ? 'text-green-400' : 'text-green-600'
+                    }`} />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Mensagem Enviada!
+                <h3 className={`text-xl font-semibold mb-2 ${
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                }`}>
+                    {t('contactForm.success.title')}
                 </h3>
-                <p className="text-gray-600 mb-6">
-                    Agradecemos seu contato. Nossa equipe retornará em breve.
+                <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
+                    {t('contactForm.success.message')}
                 </p>
                 <button
                     onClick={() => setSubmitted(false)}
-                    className="btn btn-secondary"
+                    className={`mt-6 btn ${theme === 'dark' ? 'btn-white' : 'btn-secondary'}`}
                 >
-                    Enviar Nova Mensagem
+                    {t('contactForm.success.newMessage')}
                 </button>
             </motion.div>
         );
     }
 
+    const inputClassName = `block w-full rounded-lg shadow-sm sm:text-sm ${
+        theme === 'dark' 
+            ? 'bg-gray-800 border-gray-700 text-white focus:ring-primary-500 focus:border-primary-500' 
+            : 'border-gray-300 focus:ring-primary-500 focus:border-primary-500'
+    }`;
+
+    const labelClassName = `block text-sm font-medium mb-1 ${
+        theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+    }`;
+
+    const errorClassName = "mt-1 text-sm text-red-600";
+
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Nome */}
             <div>
-                <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                    Nome Completo *
+                <label htmlFor="name" className={labelClassName}>
+                    {t('contactForm.fields.name.label')} *
                 </label>
                 <input
                     type="text"
                     id="name"
                     {...register('name', {
-                        required: 'Nome é obrigatório',
+                        required: t('contactForm.fields.name.required'),
                         minLength: {
                             value: 3,
-                            message: 'Nome deve ter pelo menos 3 caracteres'
+                            message: t('contactForm.fields.name.minLength')
                         }
                     })}
-                    className={`block w-full rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm ${errors.name ? 'border-red-300' : 'border-gray-300'
-                        }`}
+                    className={`${inputClassName} ${errors.name ? 'border-red-300' : ''}`}
                 />
                 {errors.name && (
-                    <p className="mt-1 text-sm text-red-600">
-                        {errors.name.message}
-                    </p>
+                    <p className={errorClassName}>{errors.name.message}</p>
                 )}
             </div>
 
             {/* Email */}
             <div>
-                <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                    Email Corporativo *
+                <label htmlFor="email" className={labelClassName}>
+                    {t('contactForm.fields.email.label')} *
                 </label>
                 <input
                     type="email"
                     id="email"
                     {...register('email', {
-                        required: 'Email é obrigatório',
+                        required: t('contactForm.fields.email.required'),
                         pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                            message: 'Email inválido'
+                            message: t('contactForm.fields.email.invalid')
                         }
                     })}
-                    className={`block w-full rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm ${errors.email ? 'border-red-300' : 'border-gray-300'
-                        }`}
+                    className={`${inputClassName} ${errors.email ? 'border-red-300' : ''}`}
                 />
                 {errors.email && (
-                    <p className="mt-1 text-sm text-red-600">
-                        {errors.email.message}
-                    </p>
+                    <p className={errorClassName}>{errors.email.message}</p>
                 )}
             </div>
 
             {/* Telefone */}
             <div>
-                <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                    Telefone *
+                <label htmlFor="phone" className={labelClassName}>
+                    {t('contactForm.fields.phone.label')} *
                 </label>
                 <input
                     type="tel"
                     id="phone"
                     {...register('phone', {
-                        required: 'Telefone é obrigatório',
+                        required: t('contactForm.fields.phone.required'),
                         pattern: {
                             value: /^[0-9()-\s+]*$/,
-                            message: 'Telefone inválido'
+                            message: t('contactForm.fields.phone.invalid')
                         }
                     })}
-                    className={`block w-full rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm ${errors.phone ? 'border-red-300' : 'border-gray-300'
-                        }`}
-                    placeholder="(11) 99999-9999"
+                    className={`${inputClassName} ${errors.phone ? 'border-red-300' : ''}`}
+                    placeholder={t('contactForm.fields.phone.placeholder')}
                 />
                 {errors.phone && (
-                    <p className="mt-1 text-sm text-red-600">
-                        {errors.phone.message}
-                    </p>
+                    <p className={errorClassName}>{errors.phone.message}</p>
                 )}
             </div>
 
             {/* Empresa */}
             <div>
-                <label
-                    htmlFor="company"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                    Empresa *
+                <label htmlFor="company" className={labelClassName}>
+                    {t('contactForm.fields.company.label')} *
                 </label>
                 <input
                     type="text"
                     id="company"
                     {...register('company', {
-                        required: 'Empresa é obrigatória'
+                        required: t('contactForm.fields.company.required')
                     })}
-                    className={`block w-full rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm ${errors.company ? 'border-red-300' : 'border-gray-300'
-                        }`}
+                    className={`${inputClassName} ${errors.company ? 'border-red-300' : ''}`}
                 />
                 {errors.company && (
-                    <p className="mt-1 text-sm text-red-600">
-                        {errors.company.message}
-                    </p>
+                    <p className={errorClassName}>{errors.company.message}</p>
                 )}
-            </div>
-
-            {/* Cargo */}
-            <div>
-                <label
-                    htmlFor="jobTitle"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                    Cargo
-                </label>
-                <input
-                    type="text"
-                    id="jobTitle"
-                    {...register('jobTitle')}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
-                />
-            </div>
-
-            {/* Tamanho da Empresa */}
-            <div>
-                <label
-                    htmlFor="companySize"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                    Tamanho da Empresa
-                </label>
-                <select
-                    id="companySize"
-                    {...register('companySize')}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
-                >
-                    <option value="">Selecione</option>
-                    <option value="1-10">1-10 funcionários</option>
-                    <option value="11-50">11-50 funcionários</option>
-                    <option value="51-200">51-200 funcionários</option>
-                    <option value="201-500">201-500 funcionários</option>
-                    <option value="501+">501+ funcionários</option>
-                </select>
             </div>
 
             {/* Serviços de Interesse */}
             <div>
-                <label
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                    Serviços de Interesse *
+                <label className={labelClassName}>
+                    {t('contactForm.fields.services.label')} *
                 </label>
-                <div className="grid grid-cols-2 gap-4">
-                    {serviceOptions.map((service) => (
-                        <div key={service} className="flex items-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {Object.values(serviceIds).map((serviceId) => (
+                        <div key={serviceId} className="flex items-center">
                             <input
                                 type="checkbox"
-                                id={service}
-                                value={service}
+                                id={serviceId}
+                                value={serviceId}
                                 {...register('services', {
-                                    required: 'Selecione pelo menos um serviço'
+                                    required: t('contactForm.fields.services.required')
                                 })}
-                                className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                                className={`h-4 w-4 ${
+                                    theme === 'dark'
+                                        ? 'text-primary-400 bg-gray-700 border-gray-600'
+                                        : 'text-primary-600 border-gray-300'
+                                } rounded focus:ring-primary-500`}
                             />
                             <label
-                                htmlFor={service}
-                                className="ml-2 text-sm text-gray-600"
+                                htmlFor={serviceId}
+                                className={`ml-2 text-sm ${
+                                    theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+                                }`}
                             >
-                                {service}
+                                {t(`services.${serviceId}.title`)}
                             </label>
                         </div>
                     ))}
                 </div>
                 {errors.services && (
-                    <p className="mt-1 text-sm text-red-600">
-                        {errors.services.message}
-                    </p>
+                    <p className={errorClassName}>{errors.services.message}</p>
                 )}
-            </div>
-
-            {/* Orçamento */}
-            <div>
-                <label
-                    htmlFor="budget"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                    Orçamento Mensal Estimado
-                </label>
-                <select
-                    id="budget"
-                    {...register('budget')}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
-                >
-                    <option value="">Selecione</option>
-                    {budgetRanges.map((range) => (
-                        <option key={range} value={range}>
-                            {range}
-                        </option>
-                    ))}
-                </select>
             </div>
 
             {/* Mensagem */}
             <div>
-                <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                    Mensagem *
+                <label htmlFor="message" className={labelClassName}>
+                    {t('contactForm.fields.message.label')} *
                 </label>
                 <textarea
                     id="message"
                     rows={4}
                     {...register('message', {
-                        required: 'Mensagem é obrigatória',
+                        required: t('contactForm.fields.message.required'),
                         minLength: {
                             value: 20,
-                            message: 'Mensagem deve ter pelo menos 20 caracteres'
+                            message: t('contactForm.fields.message.minLength')
                         }
                     })}
-                    className={`block w-full rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm ${errors.message ? 'border-red-300' : 'border-gray-300'
-                        }`}
-                    placeholder="Descreva suas necessidades e objetivos..."
+                    className={`${inputClassName} ${errors.message ? 'border-red-300' : ''}`}
+                    placeholder={t('contactForm.fields.message.placeholder')}
                 />
                 {errors.message && (
-                    <p className="mt-1 text-sm text-red-600">
-                        {errors.message.message}
-                    </p>
+                    <p className={errorClassName}>{errors.message.message}</p>
                 )}
-            </div>
-
-            {/* Preferência de Contato */}
-            <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Preferência de Contato
-                </label>
-                <div className="space-y-2">
-                    {['Email', 'Telefone', 'WhatsApp'].map((method) => (
-                        <div key={method} className="flex items-center">
-                            <input
-                                type="radio"
-                                id={method}
-                                value={method}
-                                {...register('contactPreference')}
-                                className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300"
-                            />
-                            <label
-                                htmlFor={method}
-                                className="ml-2 text-sm text-gray-600"
-                            >
-                                {method}
-                            </label>
-                        </div>
-                    ))}
-                </div>
             </div>
 
             {/* LGPD Consent */}
@@ -345,24 +231,31 @@ const ContactForm = () => {
                         type="checkbox"
                         id="consent"
                         {...register('consent', {
-                            required: 'É necessário aceitar os termos'
+                            required: t('contactForm.fields.consent.required')
                         })}
-                        className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded mt-1"
+                        className={`h-4 w-4 ${
+                            theme === 'dark'
+                                ? 'text-primary-400 bg-gray-700 border-gray-600'
+                                : 'text-primary-600 border-gray-300'
+                        } rounded focus:ring-primary-500 mt-1`}
                     />
                     <label
                         htmlFor="consent"
-                        className="ml-2 text-sm text-gray-600"
+                        className={`ml-2 text-sm ${
+                            theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+                        }`}
                     >
-                        Concordo com o processamento dos meus dados de acordo com a
-                        <a href="/privacy" className="text-primary-600 hover:text-primary-700 ml-1">
-                            Política de Privacidade
+                        {t('contactForm.fields.consent.label')}{' '}
+                        <a
+                            href="/privacy"
+                            className="text-primary-600 hover:text-primary-500"
+                        >
+                            {t('contactForm.fields.consent.privacyLink')}
                         </a>
                     </label>
                 </div>
                 {errors.consent && (
-                    <p className="mt-1 text-sm text-red-600">
-                        {errors.consent.message}
-                    </p>
+                    <p className={errorClassName}>{errors.consent.message}</p>
                 )}
             </div>
 
@@ -371,17 +264,19 @@ const ContactForm = () => {
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn btn-primary flex items-center justify-center"
+                    className={`w-full btn ${
+                        theme === 'dark' ? 'btn-white' : 'btn-primary'
+                    } flex items-center justify-center`}
                 >
                     {isSubmitting ? (
                         <>
                             <Loader2 className="animate-spin h-5 w-5 mr-2" />
-                            Enviando...
+                            {t('contactForm.submitting')}
                         </>
                     ) : (
                         <>
                             <Send className="h-5 w-5 mr-2" />
-                            Enviar Mensagem
+                            {t('contactForm.submit')}
                         </>
                     )}
                 </button>

@@ -12,7 +12,7 @@ import FAQ from '../components/sections/FAQ';
 import Diagnostic from '../components/sections/Diagnostic';
 import TrustedBy from '../components/sections/TrustedBy';
 
-// Componente de SEO (opcional, se você estiver usando react-helmet ou similar)
+// Componente de SEO
 import SEO from '../components/utils/SEO';
 
 const Home = () => {
@@ -23,29 +23,29 @@ const Home = () => {
                 description="Soluções integradas de comunicação que aumentam a eficiência, reduzem custos e impulsionam o crescimento do seu negócio."
             />
 
-            {/* Hero Section */}
+            {/* Hero Section - Foco em soluções */}
             <Hero />
 
-            {/* Trusted By Section */}
-            <TrustedBy />
-
-            {/* Serviços */}
+            {/* Serviços - Mostrando capacidades */}
             <Services />
 
-            {/* Benefícios */}
+            {/* Benefícios e resultados práticos */}
             <Benefits />
 
-            {/* Diagnóstico Rápido */}
-            <Diagnostic />
-
-            {/* Como Funciona */}
+            {/* Como trabalhamos */}
             <HowItWorks />
 
-            {/* Comparativo */}
+            {/* Diagnóstico e contato */}
+            <Diagnostic />
+
+            {/* FAQ - Respondendo dúvidas comuns */}
+            <FAQ />
+
+            {/* Comparativo - Mostrando diferenciais */}
             <Comparison />
 
-            {/* FAQ */}
-            <FAQ />
+            {/* Provas sociais ao final */}
+            <TrustedBy />
 
             {/* Chat Widget */}
             <div className="fixed bottom-4 right-4 z-50">
@@ -56,7 +56,7 @@ const Home = () => {
                 >
                     <button
                         className="bg-primary-600 hover:bg-primary-700 text-white rounded-full p-4 shadow-lg transition-colors"
-                        onClick={() => {/* Implementar lógica do chat */ }}
+                        onClick={() => {/* Implementar lógica do chat */}}
                     >
                         <svg
                             className="w-6 h-6"

@@ -1,206 +1,210 @@
-// src/components/sections/FAQ.jsx
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
-
-const faqData = {
-    services: {
-        title: 'Sobre nossos serviços',
-        questions: [
-            {
-                question: 'Quais serviços a Align oferece?',
-                answer: 'A Align oferece uma gama completa de serviços incluindo Desenvolvimento, Customer Support, Video Editing, Marketing, Project Management, Admin, Accounting e Design. Cada serviço é personalizado para atender às necessidades específicas de sua empresa.'
-            },
-            {
-                question: 'Como vocês garantem a qualidade dos serviços?',
-                answer: 'Mantemos rigorosos processos de controle de qualidade, incluindo monitoramento constante, feedback regular e treinamento contínuo das equipes. Também utilizamos métricas e KPIs específicos para cada serviço.'
-            },
-            {
-                question: 'Posso contratar apenas um serviço específico?',
-                answer: 'Sim, nossos serviços podem ser contratados individualmente ou em conjunto, dependendo das suas necessidades. Oferecemos flexibilidade para adaptar nossos serviços ao seu modelo de negócio.'
-            }
-        ]
-    },
-    implementation: {
-        title: 'Processo de implementação',
-        questions: [
-            {
-                question: 'Quanto tempo leva para começar?',
-                answer: 'O processo de implementação é ágil e pode ser iniciado em questão de dias. Após a análise inicial e definição do escopo, realizamos um onboarding estruturado para garantir uma transição suave.'
-            },
-            {
-                question: 'Como funciona o processo de onboarding?',
-                answer: 'O onboarding inclui análise das necessidades, configuração dos sistemas, treinamento inicial da equipe e definição de processos e métricas. Todo o processo é acompanhado por um gerente de projeto dedicado.'
-            },
-            {
-                question: 'Preciso ter conhecimento técnico?',
-                answer: 'Não é necessário conhecimento técnico prévio. Nossa equipe oferece todo o suporte necessário e treinamento para utilização das ferramentas e processos.'
-            }
-        ]
-    },
-    costs: {
-        title: 'Custos e contratos',
-        questions: [
-            {
-                question: 'Como funciona o modelo de precificação?',
-                answer: 'Trabalhamos com um modelo transparente de precificação baseado nos serviços utilizados e volume de demanda. Oferecemos planos flexíveis que podem ser ajustados conforme suas necessidades.'
-            },
-            {
-                question: 'Existe período mínimo de contrato?',
-                answer: 'Oferecemos diferentes modalidades de contrato para atender às necessidades de cada cliente. Entre em contato para discutirmos a melhor opção para sua empresa.'
-            },
-            {
-                question: 'Quais formas de pagamento são aceitas?',
-                answer: 'Aceitamos diversas formas de pagamento, incluindo cartão de crédito, transferência bancária e boleto. Os pagamentos são processados mensalmente com base nos serviços utilizados.'
-            }
-        ]
-    },
-    support: {
-        title: 'Suporte e manutenção',
-        questions: [
-            {
-                question: 'Como funciona o suporte?',
-                answer: 'Oferecemos suporte 24/7 através de múltiplos canais (chat, email, telefone). Nossa equipe está sempre disponível para ajudar com qualquer questão ou necessidade.'
-            },
-            {
-                question: 'Qual o tempo médio de resposta?',
-                answer: 'Nosso tempo médio de primeira resposta é de 4 horas, com resolução da maioria dos casos em até 24 horas. Casos críticos têm prioridade e atendimento imediato.'
-            },
-            {
-                question: 'Como são feitas as atualizações e melhorias?',
-                answer: 'Realizamos atualizações e melhorias contínuas em nossos processos e sistemas, sempre comunicando previamente e garantindo zero impacto nas operações.'
-            }
-        ]
-    }
-};
-
-const FAQItem = ({ question, answer, isOpen, toggleOpen }) => {
-    return (
-        <div className="border-b border-gray-200 last:border-0">
-            <button
-                className="w-full flex items-center justify-between py-4 px-2 text-left focus:outline-none"
-                onClick={toggleOpen}
-            >
-                <span className="font-medium text-gray-900">{question}</span>
-                {isOpen ? (
-                    <Minus className="h-5 w-5 text-primary-600 flex-shrink-0 ml-4" />
-                ) : (
-                    <Plus className="h-5 w-5 text-primary-600 flex-shrink-0 ml-4" />
-                )}
-            </button>
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                    >
-                        <p className="pb-4 px-2 text-gray-600">
-                            {answer}
-                        </p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    );
-};
-
-const FAQCategory = ({ category, questions }) => {
-    const [openIndex, setOpenIndex] = useState(null);
-
-    const toggleQuestion = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
-
-    return (
-        <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">{category}</h3>
-            <div className="space-y-2">
-                {questions.map((item, index) => (
-                    <FAQItem
-                        key={index}
-                        question={item.question}
-                        answer={item.answer}
-                        isOpen={openIndex === index}
-                        toggleOpen={() => toggleQuestion(index)}
-                    />
-                ))}
-            </div>
-        </div>
-    );
-};
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '../../context/theme/ThemeContext';
+import {
+    Search,
+    Plus,
+    Minus,
+    MessageSquare,
+    PhoneCall,
+    Mail,
+    HelpCircle
+} from 'lucide-react';
 
 const FAQ = () => {
-    const [activeTab, setActiveTab] = useState('services');
+    const { theme } = useTheme();
+    const { t } = useTranslation();
+    const [searchTerm, setSearchTerm] = useState('');
+    const [activeCategory, setActiveCategory] = useState('services');
+    const [openQuestions, setOpenQuestions] = useState({});
+
+    const categories = [
+        { id: 'services', icon: HelpCircle },
+        { id: 'pricing', icon: MessageSquare },
+        { id: 'support', icon: PhoneCall },
+        { id: 'technical', icon: Mail }
+    ];
+
+    const toggleQuestion = (categoryId, questionIndex) => {
+        setOpenQuestions(prev => ({
+            ...prev,
+            [`${categoryId}-${questionIndex}`]: !prev[`${categoryId}-${questionIndex}`]
+        }));
+    };
+
+    // Filtra as perguntas baseado na busca
+    const getFAQs = (categoryId) => {
+        const questions = t(`faq.categories.${categoryId}.questions`, { returnObjects: true });
+        if (!searchTerm) return questions;
+
+        return questions.filter(q =>
+            q.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            q.answer.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    };
+
+    const bgClass = theme === 'dark' ? 'bg-gray-900' : 'bg-white';
+    const textClass = theme === 'dark' ? 'text-white' : 'text-gray-900';
+    const cardBgClass = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
+    const borderClass = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
 
     return (
-        <section className="section bg-gray-50" id="faq">
+        <section className={`${bgClass} py-16`}>
             <div className="container-custom">
-                {/* Section Header */}
+                {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                        Perguntas Frequentes
-                    </h2>
-                    <p className="text-lg text-gray-600">
-                        Encontre respostas para as principais dúvidas sobre nossos serviços e
-                        como podemos ajudar sua empresa
-                    </p>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className={`text-3xl sm:text-4xl font-bold ${textClass} mb-6`}
+                    >
+                        {t('faq.title')}
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}
+                    >
+                        {t('faq.subtitle')}
+                    </motion.p>
+
+                    {/* Search */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="mt-8 max-w-xl mx-auto"
+                    >
+                        <div className="relative">
+                            <input
+                                type="text"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                placeholder={t('faq.searchPlaceholder')}
+                                className={`w-full px-4 py-3 pl-12 rounded-lg ${
+                                    theme === 'dark'
+                                        ? 'bg-gray-800 border-gray-700 text-white'
+                                        : 'bg-white border-gray-300'
+                                } focus:ring-2 focus:ring-primary-500 focus:border-transparent`}
+                            />
+                            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                        </div>
+                    </motion.div>
                 </div>
 
                 {/* Category Tabs */}
-                <div className="flex flex-wrap justify-center gap-2 mb-8">
-                    {Object.entries(faqData).map(([key, { title }]) => (
-                        <button
-                            key={key}
-                            onClick={() => setActiveTab(key)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === key
-                                    ? 'bg-primary-600 text-white'
-                                    : 'bg-white text-gray-600 hover:bg-gray-100'
+                <div className="flex flex-wrap justify-center gap-4 mb-8">
+                    {categories.map((category) => {
+                        const Icon = category.icon;
+                        return (
+                            <button
+                                key={category.id}
+                                onClick={() => setActiveCategory(category.id)}
+                                className={`flex items-center px-6 py-3 rounded-lg text-sm font-medium transition-colors ${
+                                    activeCategory === category.id
+                                        ? 'bg-primary-600 text-white'
+                                        : theme === 'dark'
+                                        ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
-                        >
-                            {title}
-                        </button>
-                    ))}
+                            >
+                                <Icon className="h-5 w-5 mr-2" />
+                                {t(`faq.categories.${category.id}.title`)}
+                            </button>
+                        );
+                    })}
                 </div>
 
-                {/* FAQ Content */}
-                <motion.div
-                    key={activeTab}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                >
-                    <FAQCategory
-                        category={faqData[activeTab].title}
-                        questions={faqData[activeTab].questions}
-                    />
-                </motion.div>
+                {/* FAQ Items */}
+                <div className="max-w-3xl mx-auto space-y-4">
+                    {getFAQs(activeCategory).map((faq, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className={`${cardBgClass} rounded-lg shadow-sm overflow-hidden`}
+                        >
+                            <button
+                                onClick={() => toggleQuestion(activeCategory, index)}
+                                className="w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+                                aria-expanded={openQuestions[`${activeCategory}-${index}`]}
+                            >
+                                <span className={`font-medium ${textClass}`}>
+                                    {faq.question}
+                                </span>
+                                {openQuestions[`${activeCategory}-${index}`] ? (
+                                    <Minus className="h-5 w-5 text-primary-600 flex-shrink-0 ml-4" />
+                                ) : (
+                                    <Plus className="h-5 w-5 text-primary-600 flex-shrink-0 ml-4" />
+                                )}
+                            </button>
 
-                {/* Still Have Questions */}
-                <div className="mt-12 text-center bg-white rounded-lg shadow-sm p-8">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        Ainda tem dúvidas?
+                            <AnimatePresence>
+                                {openQuestions[`${activeCategory}-${index}`] && (
+                                    <motion.div
+                                        initial={{ height: 0 }}
+                                        animate={{ height: 'auto' }}
+                                        exit={{ height: 0 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="overflow-hidden border-t border-gray-200"
+                                    >
+                                        <div className="p-4">
+                                            <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
+                                                {faq.answer}
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
+                    ))}
+
+                    {/* No Results */}
+                    {getFAQs(activeCategory).length === 0 && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className="text-center py-12"
+                        >
+                            <h3 className={`text-lg font-medium ${textClass} mb-2`}>
+                                {t('faq.noResults.title')}
+                            </h3>
+                            <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
+                                {t('faq.noResults.message')}
+                            </p>
+                        </motion.div>
+                    )}
+                </div>
+
+                {/* Contact Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-16 text-center"
+                >
+                    <h3 className={`text-xl font-semibold ${textClass} mb-4`}>
+                        {t('faq.contact.title')}
                     </h3>
-                    <p className="text-gray-600 mb-6">
-                        Nossa equipe está pronta para ajudar com qualquer questão adicional
+                    <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-8`}>
+                        {t('faq.contact.message')}
                     </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <a
-                            href="/contact"
-                            className="btn btn-primary inline-flex items-center justify-center"
-                        >
-                            Fale Conosco
+                    <div className="flex flex-wrap justify-center gap-4">
+                        <a href="/contact" className={`btn ${theme === 'dark' ? 'btn-white' : 'btn-primary'}`}>
+                            {t('faq.contact.buttons.contact')}
                         </a>
-                        <a
-                            href="mailto:contato@align.com"
-                            className="btn btn-secondary inline-flex items-center justify-center"
-                        >
-                            Envie um Email
+                        <a href="mailto:support@align.com" className="btn btn-secondary">
+                            {t('faq.contact.buttons.email')}
                         </a>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

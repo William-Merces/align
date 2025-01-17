@@ -1,0 +1,774 @@
+{
+    "common": {
+        "buttons": {
+            "learnMore": "Saber más",
+            "contact": "Contáctenos",
+            "schedule": "Programar consulta",
+            "start": "Comenzar ahora",
+            "download": "Descargar",
+            "share": "Compartir",
+            "getDetailedReport": "Obtener informe detallado",
+            "recalculate": "Recalcular"
+        },
+        "hours": "horas",
+        "calculating": "Calculando...",
+        "loading": "Cargando..."
+    },
+    "navigation": {
+        "services": "Servicios",
+        "howItWorks": "Cómo Funciona",
+        "whyAlign": "Por qué Align",
+        "contact": "Contacto",
+        "blog": "Blog",
+        "about": "Sobre Nosotros"
+    },
+    "services": {
+        "section": {
+            "title": "Soluciones Completas para Cada Necesidad",
+            "subtitle": "Descubra cómo nuestra experiencia en diferentes áreas puede impulsar la eficiencia de su empresa"
+        },
+        "valueProps": {
+            "integration": {
+                "title": "Integración Completa",
+                "description": "Todos los servicios trabajan en armonía para maximizar resultados"
+            },
+            "flexibility": {
+                "title": "Flexibilidad Total",
+                "description": "Elija solo los servicios que su empresa necesita ahora"
+            },
+            "scalability": {
+                "title": "Escalabilidad Garantizada",
+                "description": "Crezca gradualmente según aumenten sus necesidades"
+            }
+        },
+        "integration": {
+            "title": "Soluciones que Trabajan Juntas",
+            "description": "Cada servicio está diseñado para funcionar de forma independiente o en conjunto con otros, permitiendo una integración perfecta y resultados superiores",
+            "cta": "Consulte a un Especialista"
+        },
+        "quickStart": {
+            "consultation": {
+                "title": "Consulta Inicial",
+                "description": "Análisis gratuito de sus necesidades y desafíos actuales"
+            },
+            "plan": {
+                "title": "Plan Personalizado",
+                "description": "Desarrollo de una solución a medida para su empresa"
+            },
+            "implementation": {
+                "title": "Implementación Rápida",
+                "description": "Inicio de operaciones en días, no meses"
+            }
+        },
+        "development": {
+            "title": "Desarrollo",
+            "description": "Desarrollo ágil y escalable de aplicaciones web y móviles con enfoque en calidad y rendimiento",
+            "subServices": {
+                "0": "Desarrollo Frontend",
+                "1": "Desarrollo Backend",
+                "2": "Aplicaciones Móviles",
+                "3": "APIs e Integraciones",
+                "4": "Mantenimiento de Sistemas",
+                "5": "DevOps"
+            }
+        },
+        "customer-support": {
+            "title": "Atención al Cliente",
+            "description": "Soporte técnico especializado y atención al cliente en múltiples idiomas y canales",
+            "subServices": {
+                "0": "Soporte Técnico 24/7",
+                "1": "Chat en Vivo",
+                "2": "Mesa de Ayuda",
+                "3": "Gestión de Tickets",
+                "4": "Soporte Multilingüe",
+                "5": "Análisis de Satisfacción"
+            }
+        },
+        "video-editing": {
+            "title": "Edición de Video",
+            "description": "Producción y edición profesional de videos para marketing, capacitación y comunicación corporativa",
+            "subServices": {
+                "0": "Edición de Video",
+                "1": "Motion Graphics",
+                "2": "Animación 2D",
+                "3": "Subtitulado",
+                "4": "Videos Corporativos",
+                "5": "Contenido para Redes Sociales"
+            }
+        },
+        "marketing": {
+            "title": "Marketing",
+            "description": "Estrategias completas de marketing digital para aumentar su presencia en línea y generar resultados",
+            "subServices": {
+                "0": "Marketing Digital",
+                "1": "SEO",
+                "2": "Gestión de Redes Sociales",
+                "3": "Email Marketing",
+                "4": "Marketing de Contenidos",
+                "5": "Analítica e Informes"
+            }
+        },
+        "project-management": {
+            "title": "Gestión de Proyectos",
+            "description": "Gestión eficiente de proyectos con metodologías ágiles y enfoque en resultados",
+            "subServices": {
+                "0": "Metodologías Ágiles",
+                "1": "Gestión de Equipos",
+                "2": "Planificación Estratégica",
+                "3": "Control de Calidad",
+                "4": "Gestión de Riesgos",
+                "5": "Informes de Rendimiento"
+            }
+        },
+        "admin": {
+            "title": "Administrativo",
+            "description": "Soporte administrativo completo para optimizar procesos y aumentar la productividad",
+            "subServices": {
+                "0": "Gestión de Documentos",
+                "1": "Procesamiento de Datos",
+                "2": "Soporte Ejecutivo",
+                "3": "Gestión de Calendario",
+                "4": "Informes Administrativos",
+                "5": "Organización de Eventos"
+            }
+        },
+        "accounting": {
+            "title": "Contabilidad",
+            "description": "Servicios contables y financieros para mantener sus finanzas organizadas y en conformidad",
+            "subServices": {
+                "0": "Contabilidad General",
+                "1": "Gestión Financiera",
+                "2": "Nómina",
+                "3": "Informes Financieros",
+                "4": "Cumplimiento Fiscal",
+                "5": "Planificación Tributaria"
+            }
+        },
+        "design": {
+            "title": "Diseño",
+            "description": "Diseño creativo y profesional para fortalecer su marca y comunicación visual",
+            "subServices": {
+                "0": "Diseño UI/UX",
+                "1": "Diseño Gráfico",
+                "2": "Branding",
+                "3": "Diseño Web",
+                "4": "Material Corporativo",
+                "5": "Diseño para Redes Sociales"
+            }
+        },
+        "moreServices": "{{count}} servicios más"
+    },
+    "comparison": {
+        "title": "La Diferencia Align",
+        "subtitle": "Compare y descubra por qué las empresas están eligiendo el modelo Align",
+        "headers": {
+            "feature": "Característica",
+            "traditional": "Modelo Tradicional",
+            "align": "Modelo Align"
+        },
+        "traditional": "Modelo Tradicional",
+        "align": "Modelo Align",
+        "categories": {
+            "integration": "Proceso de Integración",
+            "flexibility": "Flexibilidad",
+            "team": "Gestión de Equipo",
+            "costs": "Costos",
+            "support": "Soporte",
+            "scalability": "Escalabilidad"
+        },
+        "descriptions": {
+            "traditional": {
+                "integration": "Proceso lento y burocrático",
+                "flexibility": "Contratos largos y rígidos",
+                "team": "Control limitado sobre el equipo",
+                "costs": "Costos fijos altos e imprevisibles",
+                "support": "Soporte limitado en horario laboral",
+                "scalability": "Proceso complejo de expansión"
+            },
+            "align": {
+                "integration": "Incorporación rápida y eficiente",
+                "flexibility": "Flexibilidad para ajustar según necesidad",
+                "team": "Control total sobre equipo y procesos",
+                "costs": "Costos transparentes y previsibles",
+                "support": "Soporte dedicado 24/7",
+                "scalability": "Escalabilidad rápida y sin complicaciones"
+            }
+        },
+        "cta": "Conozca Nuestra Metodología",
+        "ctaSubtext": "Programe una demostración personalizada para su empresa"
+    },
+    "integrationDiagram": {
+        "title": "Servicios Trabajando en Armonía",
+        "subtitle": "Comprenda cómo nuestros servicios se integran para crear una solución completa y eficiente para su empresa",
+        "benefits": {
+            "efficiency": {
+                "title": "Máxima Eficiencia",
+                "description": "Procesos optimizados e integrados para mayor productividad"
+            },
+            "synergy": {
+                "title": "Sinergia Total",
+                "description": "Todos los servicios trabajan en perfecta armonía"
+            },
+            "scalability": {
+                "title": "Escalabilidad",
+                "description": "Crezca según sus necesidades sin complicaciones"
+            }
+        },
+        "cta": "Conozca Nuestra Metodología",
+        "ctaSubtext": "Programe una demostración y vea cómo podemos ayudar a su empresa"
+    },
+    "roiCalculator": {
+        "title": "Calculadora de ROI",
+        "subtitle": "Descubra cuánto puede ahorrar su empresa optimizando la comunicación",
+        "toggleCalculator": "Mostrar/Ocultar Calculadora",
+        "inputs": {
+            "teamSize": "Tamaño del Equipo",
+            "avgSalary": "Salario Promedio ($)",
+            "workHours": "Horas de Trabajo por Mes",
+            "inefficiencyRate": "Tasa de Ineficiencia (%)"
+        },
+        "results": {
+            "annualSavings": "Ahorro Anual",
+            "productivityGain": "Aumento de Productividad",
+            "roi": "ROI Estimado"
+        },
+        "cta": {
+            "title": "¿Quiere saber más?",
+            "subtitle": "Programe una consulta y reciba un análisis detallado",
+            "button": "Hablar con un Especialista"
+        }
+    },
+    "productivityCalculator": {
+        "title": "Calculadora de Productividad",
+        "subtitle": "Descubra cuánto tiempo puede ahorrar su equipo",
+        "categories": {
+            "meetings": {
+                "title": "Reuniones"
+            },
+            "communication": {
+                "title": "Comunicación"
+            },
+            "documentation": {
+                "title": "Documentación"
+            }
+        },
+        "questions": {
+            "dailyMeetings": "Número promedio de reuniones por día",
+            "avgMeetingDuration": "Duración promedio de reuniones (minutos)",
+            "unnecessaryMeetings": "% de reuniones que podrían ser emails",
+            "emailsPerDay": "Número promedio de emails por día",
+            "timePerEmail": "Tiempo promedio por email (minutos)",
+            "chatMessages": "Tiempo diario en chats (minutos)",
+            "docsPerWeek": "Documentos producidos por semana",
+            "timePerDoc": "Tiempo promedio por documento (minutos)",
+            "revisionTime": "Tiempo en revisiones (minutos/semana)"
+        },
+        "calculate": "Calcular Productividad",
+        "results": {
+            "summary": "Resultados del Análisis",
+            "annualSavings": "Ahorro Anual de Tiempo",
+            "productivityGain": "Aumento de Productividad",
+            "potentialSavings": "Ahorro Potencial"
+        }
+    },
+    "contactForm": {
+        "title": "Contáctenos",
+        "subtitle": "Complete el formulario a continuación y nos pondremos en contacto pronto",
+        "fields": {
+            "name": {
+                "label": "Nombre Completo",
+                "required": "El nombre es obligatorio",
+                "minLength": "El nombre debe tener al menos 3 caracteres"
+            },
+            "email": {
+                "label": "Email Corporativo",
+                "required": "El email es obligatorio",
+                "invalid": "Email inválido"
+            },
+            "phone": {
+                "label": "Teléfono",
+                "required": "El teléfono es obligatorio",
+                "invalid": "Teléfono inválido",
+                "placeholder": "(555) 555-5555"
+            },
+            "company": {
+                "label": "Empresa",
+                "required": "La empresa es obligatoria"
+            },
+            "services": {
+                "label": "Servicios de Interés",
+                "required": "Seleccione al menos un servicio"
+            },
+            "message": {
+                "label": "Mensaje",
+                "required": "El mensaje es obligatorio",
+                "minLength": "El mensaje debe tener al menos 20 caracteres",
+                "placeholder": "Describa sus necesidades y objetivos..."
+            },
+            "consent": {
+                "label": "Acepto el procesamiento de mis datos de acuerdo con la",
+                "privacyLink": "Política de Privacidad",
+                "required": "Debe aceptar los términos"
+            }
+        },
+        "submit": "Enviar Mensaje",
+        "submitting": "Enviando...",
+        "success": {
+            "title": "¡Mensaje Enviado!",
+            "message": "Gracias por contactarnos. Nuestro equipo se pondrá en contacto pronto",
+            "newMessage": "Enviar Otro Mensaje"
+        }
+    },
+    "contact": {
+        "hero": {
+            "title": "Transformemos su Comunicación",
+            "subtitle": "Contáctenos y descubra cómo podemos ayudar a su empresa a lograr mejores resultados"
+        },
+        "methods": {
+            "phone": {
+                "title": "Llámenos",
+                "description": "Estamos disponibles para atender su llamada",
+                "action": "Llamar Ahora"
+            },
+            "chat": {
+                "title": "Chat en Vivo",
+                "description": "Chatee en tiempo real con nuestro equipo",
+                "action": "Iniciar Chat"
+            },
+            "calendar": {
+                "title": "Agende una Llamada",
+                "description": "Elija el mejor momento para hablar",
+                "action": "Agendar"
+            }
+        },
+        "form": {
+            "title": "Hable con un Especialista"
+        },
+        "hours": {
+            "title": "Horario de Atención",
+            "weekdays": "Lunes a Viernes: 9am a 6pm",
+            "saturday": "Sábado: 9am a 1pm",
+            "sunday": "Domingo: Cerrado"
+        },
+        "newsletter": {
+            "title": "Manténgase Actualizado",
+            "subtitle": "Reciba contenido exclusivo sobre comunicación empresarial y novedades de Align",
+            "placeholder": "Su mejor email",
+            "button": "Suscribirse",
+            "disclaimer": "Puede cancelar su suscripción en cualquier momento"
+        },
+        "address": {
+            "formatted": "{{street}}, {{city}} - {{state}}, {{country}}, {{zip}}"
+        }
+    },
+    "diagnostic": {
+        "title": "Diagnóstico Rápido",
+        "subtitle": "Responda algunas preguntas rápidas y descubra cómo podemos ayudar a su empresa",
+        "progress": "Pregunta {{current}} de {{total}}",
+        "questions": {
+            "size": {
+                "title": "¿Cuál es el tamaño de su empresa?",
+                "options": [
+                    {
+                        "value": "small",
+                        "label": "1-10 empleados"
+                    },
+                    {
+                        "value": "medium",
+                        "label": "11-50 empleados"
+                    },
+                    {
+                        "value": "large",
+                        "label": "51-200 empleados"
+                    },
+                    {
+                        "value": "enterprise",
+                        "label": "200+ empleados"
+                    }
+                ]
+            },
+            "challenges": {
+                "title": "¿Cuáles son sus principales desafíos?",
+                "options": [
+                    {
+                        "value": "efficiency",
+                        "label": "Eficiencia operativa"
+                    },
+                    {
+                        "value": "costs",
+                        "label": "Costos elevados"
+                    },
+                    {
+                        "value": "quality",
+                        "label": "Calidad del servicio"
+                    },
+                    {
+                        "value": "scale",
+                        "label": "Dificultad para escalar"
+                    }
+                ]
+            },
+            "services": {
+                "title": "¿Qué servicios le interesan más?",
+                "options": [
+                    {
+                        "value": "development",
+                        "label": "Desarrollo"
+                    },
+                    {
+                        "value": "support",
+                        "label": "Atención al Cliente"
+                    },
+                    {
+                        "value": "marketing",
+                        "label": "Marketing"
+                    },
+                    {
+                        "value": "management",
+                        "label": "Gestión de Proyectos"
+                    }
+                ]
+            }
+        },
+        "results": {
+            "title": "Recomendaciones Personalizadas",
+            "recommendations": {
+                "size": {
+                    "title": "Basado en el tamaño de su empresa",
+                    "small": "Nuestras soluciones están perfectamente dimensionadas para pequeñas empresas",
+                    "medium": "Tenemos experiencia ayudando a empresas medianas a crecer",
+                    "large": "Nuestra plataforma es ideal para grandes empresas",
+                    "enterprise": "Tenemos soluciones empresariales completas para sus necesidades"
+                },
+                "challenges": {
+                    "title": "Para sus desafíos específicos",
+                    "efficiency": "Podemos optimizar sus procesos y aumentar la eficiencia",
+                    "costs": "Nuestras soluciones pueden reducir significativamente sus costos",
+                    "quality": "Garantizamos la más alta calidad en todos los servicios",
+                    "scale": "Nuestra plataforma está diseñada para escalar con su crecimiento"
+                },
+                "services": {
+                    "title": "Servicios recomendados",
+                    "development": "Nuestro equipo de desarrollo está listo para ayudar",
+                    "support": "Podemos transformar su atención al cliente",
+                    "marketing": "Nuestras soluciones de marketing generan resultados reales",
+                    "management": "Nuestra gestión de proyectos es referencia en el mercado"
+                }
+            },
+            "cta": {
+                "contact": "Hablar con un Especialista",
+                "restart": "Reiniciar Diagnóstico"
+            }
+        },
+        "back": "Volver",
+        "disclaimer": "Análisis gratuito sin compromiso. Sus datos están protegidos y no serán compartidos"
+    },
+    "benefits": {
+        "title": "Beneficios que Transforman su Negocio",
+        "subtitle": "Descubra cómo nuestra solución integrada puede impulsar la eficiencia y los resultados de su empresa",
+        "items": {
+            "communication": {
+                "title": "Comunicación más eficiente",
+                "description": "Reduzca el ruido y aumente la claridad en la comunicación entre equipos y departamentos"
+            },
+            "costs": {
+                "title": "Reducción de costos operativos",
+                "description": "Optimice recursos y reduzca gastos innecesarios con procesos más eficientes"
+            },
+            "productivity": {
+                "title": "Aumento de productividad",
+                "description": "Acelere entregas y mejore resultados con procesos optimizados e integrados"
+            },
+            "engagement": {
+                "title": "Mayor compromiso",
+                "description": "Promueva mejor colaboración y motivación entre equipos con comunicación clara"
+            },
+            "processes": {
+                "title": "Procesos optimizados",
+                "description": "Automatice y simplifique flujos de trabajo para mayor eficiencia operativa"
+            },
+            "support": {
+                "title": "Soporte multilingüe",
+                "description": "Comuníquese efectivamente con equipos y clientes en diferentes idiomas y culturas"
+            }
+        },
+        "stats": {
+            "efficiency": {
+                "value": "40%",
+                "label": "Reducción en tiempo de respuesta"
+            },
+            "satisfaction": {
+                "value": "98%",
+                "label": "Satisfacción del cliente"
+            },
+            "roi": {
+                "value": "3x",
+                "label": "Retorno sobre inversión"
+            }
+        },
+        "cta": "Calcule sus Ahorros",
+        "ctaSubtext": "Use nuestra calculadora de ROI para descubrir su potencial de ahorro"
+    },
+    "hero": {
+        "title": "Terceriza con inteligencia.",
+        "titleHighlight": "Crece más rápido.",
+        "subtitle": "Equipos especializados en desarrollo, soporte y gestión para empresas que quieren crecer sin aumentar costos fijos:",
+        "highlights": {
+            "efficiency": "Ahorre hasta 40% en costos operativos",
+            "implementation": "Equipo dedicado en hasta 15 días hábiles",
+            "scalability": "Flexibilidad para escalar según su necesidad"
+        },
+        "urgencyBadge": "Consultas gratuitas disponibles este mes",
+        "cta": {
+            "primary": "Hablar con un Especialista",
+            "secondary": "Ver Todos los Servicios"
+        },
+        "form": {
+            "title": "Solicite una propuesta",
+            "subtitle": "Reciba un análisis personalizado con estimación de ahorro para su empresa"
+        },
+        "benefits": {
+            "speed": {
+                "value": "15 días",
+                "description": "De la propuesta al inicio de operaciones"
+            },
+            "support": {
+                "value": "24/7",
+                "description": "Soporte dedicado para su equipo"
+            },
+            "guarantee": {
+                "value": "0 riesgo",
+                "description": "Satisfacción garantizada o su dinero de vuelta"
+            }
+        }
+    },
+    "howItWorks": {
+        "title": "Cómo Trabajamos",
+        "subtitle": "Un proceso transparente y eficiente para garantizar los mejores resultados",
+        "steps": {
+            "analysis": {
+                "title": "Análisis Inicial",
+                "description": "Entendemos sus necesidades específicas y objetivos",
+                "details": {
+                    "1": "Evaluación de requisitos",
+                    "2": "Análisis de procesos actuales",
+                    "3": "Identificación de oportunidades"
+                }
+            },
+            "proposal": {
+                "title": "Propuesta Personalizada",
+                "description": "Desarrollamos una solución a medida para su negocio",
+                "details": {
+                    "1": "Definición de alcance",
+                    "2": "Planificación de recursos",
+                    "3": "Cronograma detallado"
+                }
+            },
+            "implementation": {
+                "title": "Implementación",
+                "description": "Iniciamos la ejecución del proyecto con metodología ágil",
+                "details": {
+                    "1": "Onboarding estructurado",
+                    "2": "Capacitación inicial",
+                    "3": "Integración con equipo"
+                }
+            },
+            "monitoring": {
+                "title": "Monitoreo",
+                "description": "Seguimiento de métricas y optimización de resultados",
+                "details": {
+                    "1": "KPIs personalizados",
+                    "2": "Informes periódicos",
+                    "3": "Mejoras continuas"
+                }
+            }
+        }
+    },
+    "trustedBy": {
+        "title": "Garantía de Calidad y Seguridad",
+        "subtitle": "Nuestro compromiso con la excelencia está respaldado por certificaciones y alianzas estratégicas",
+        "certifications": {
+            "title": "Certificaciones de Seguridad",
+            "iso27001": {
+                "name": "ISO 27001",
+                "description": "Certificación en Seguridad de la Información"
+            },
+            "rgpd": {
+                "name": "RGPD Compliant",
+                "description": "En conformidad con el Reglamento General de Protección de Datos"
+            },
+            "aenor": {
+                "name": "AENOR",
+                "description": "Certificación de Calidad y Seguridad por AENOR"
+            }
+        },
+        "associations": {
+            "title": "Alianzas Estratégicas",
+            "ametic": {
+                "name": "AMETIC",
+                "description": "Asociación Multisectorial de Empresas de Tecnología"
+            },
+            "adigital": {
+                "name": "Adigital",
+                "description": "Asociación Española de la Economía Digital"
+            }
+        },
+        "commitment": {
+            "title": "Nuestro Compromiso",
+            "description": "Trabajamos constantemente para mantener los más altos estándares de calidad y seguridad, garantizando que su empresa tenga la mejor experiencia posible",
+            "cta": "Conozca Nuestra Metodología"
+        }
+    },
+    "blog": {
+        "title": "Blog",
+        "subtitle": "Artículos y noticias sobre comunicación empresarial, tecnología y tendencias de mercado",
+        "searchPlaceholder": "Buscar artículo...",
+        "categories": {
+            "all": "Todos",
+            "business": "Negocios",
+            "technology": "Tecnología",
+            "marketing": "Marketing",
+            "productivity": "Productividad"
+        },
+        "popular": {
+            "title": "Artículos Populares",
+            "subtitle": "Los temas más leídos por nuestros lectores",
+            "readMore": "Leer Más"
+        },
+        "latest": {
+            "title": "Últimos Artículos",
+            "subtitle": "Lo más reciente en nuestro blog",
+            "readMore": "Leer Más"
+        },
+        "newsletter": {
+            "title": "Manténgase Actualizado",
+            "subtitle": "Reciba contenido exclusivo y novedades directamente en su email",
+            "placeholder": "Su mejor email",
+            "button": "Suscribirse",
+            "disclaimer": "Puede cancelar su suscripción en cualquier momento"
+        }
+    },
+    "footer": {
+        "company": {
+            "title": "Compañía",
+            "about": "Sobre Nosotros",
+            "services": "Servicios",
+            "contact": "Contacto",
+            "blog": "Blog"
+        },
+        "services": {
+            "title": "Servicios",
+            "development": "Desarrollo",
+            "support": "Atención al Cliente",
+            "marketing": "Marketing",
+            "management": "Gestión de Proyectos",
+            "admin": "Administrativo",
+            "accounting": "Contabilidad",
+            "design": "Diseño"
+        },
+        "contact": {
+            "title": "Contáctenos",
+            "phone": "Llámenos",
+            "email": "Envíenos un Email",
+            "address": "Visítenos"
+        },
+        "newsletter": {
+            "title": "Suscríbase",
+            "subtitle": "Reciba novedades y contenido exclusivo",
+            "placeholder": "Su mejor email",
+            "button": "Suscribirse"
+        },
+        "privacy": {
+            "title": "Privacidad",
+            "policy": "Política de Privacidad",
+            "terms": "Términos de Uso"
+        }
+    },
+    "faq": {
+        "title": "Preguntas Frecuentes",
+        "subtitle": "Encuentre respuestas para las principales preguntas sobre nuestros servicios",
+        "searchPlaceholder": "Buscar pregunta...",
+        "categories": {
+            "services": {
+                "title": "Nuestros Servicios",
+                "questions": [
+                    {
+                        "question": "¿Qué servicios ofrece Align?",
+                        "answer": "Align ofrece una gama completa de servicios incluyendo Desarrollo, Atención al Cliente, Edición de Video, Marketing, Gestión de Proyectos, Administrativo, Contabilidad y Diseño. Cada servicio está personalizado para atender las necesidades específicas del cliente."
+                    },
+                    {
+                        "question": "¿Cómo garantizan la calidad del servicio?",
+                        "answer": "Mantenemos rigurosos procesos de control de calidad, incluyendo monitoreo constante, retroalimentación regular y capacitación continua de los equipos. También utilizamos métricas y KPIs específicos para cada servicio."
+                    },
+                    {
+                        "question": "¿Puedo contratar solo un servicio específico?",
+                        "answer": "Sí, nuestros servicios pueden contratarse individualmente o en conjunto, dependiendo de sus necesidades. Ofrecemos flexibilidad para adaptar nuestros servicios a su modelo de negocio."
+                    }
+                ]
+            },
+            "pricing": {
+                "title": "Precios y Planes",
+                "questions": [
+                    {
+                        "question": "¿Cómo funciona el modelo de precios?",
+                        "answer": "Trabajamos con un modelo de precios transparente basado en los servicios utilizados y el volumen de demanda. Ofrecemos planes flexibles que pueden ajustarse según sus necesidades."
+                    },
+                    {
+                        "question": "¿Existe un período mínimo de contrato?",
+                        "answer": "Ofrecemos diferentes modalidades de contrato para satisfacer las necesidades de cada cliente. Contáctenos para discutir la mejor opción para su empresa."
+                    },
+                    {
+                        "question": "¿Qué formas de pago aceptan?",
+                        "answer": "Aceptamos varias formas de pago, incluyendo tarjeta de crédito, transferencia bancaria y otros métodos. Los pagos se procesan mensualmente según los servicios utilizados."
+                    }
+                ]
+            },
+            "support": {
+                "title": "Soporte",
+                "questions": [
+                    {
+                        "question": "¿Cómo funciona el soporte?",
+                        "answer": "Ofrecemos soporte 24/7 a través de múltiples canales (chat, email, teléfono). Nuestro equipo está siempre disponible para ayudar con cualquier pregunta o necesidad."
+                    },
+                    {
+                        "question": "¿Cuál es el tiempo promedio de respuesta?",
+                        "answer": "Nuestro tiempo promedio de primera respuesta es de 4 horas, con la mayoría de los casos resueltos en 24 horas. Los casos críticos tienen prioridad y atención inmediata."
+                    },
+                    {
+                        "question": "¿El soporte se ofrece en otros idiomas?",
+                        "answer": "Sí, nuestro equipo es multilingüe y puede brindar soporte en varios idiomas, incluyendo Español, Inglés y Portugués."
+                    }
+                ]
+            },
+            "technical": {
+                "title": "Cuestiones Técnicas",
+                "questions": [
+                    {
+                        "question": "¿Qué tecnologías utilizan?",
+                        "answer": "Utilizamos las tecnologías más modernas y seguras del mercado, siempre actualizadas con las últimas tendencias. Nuestra stack incluye herramientas de nivel empresarial para garantizar el mejor rendimiento."
+                    },
+                    {
+                        "question": "¿Cómo garantizan la seguridad de los datos?",
+                        "answer": "Seguimos estrictos protocolos de seguridad, incluyendo encriptación de extremo a extremo, copias de seguridad regulares y cumplimiento con GDPR y otras regulaciones de protección de datos."
+                    },
+                    {
+                        "question": "¿Es posible integrar con otros sistemas?",
+                        "answer": "Sí, nuestras soluciones están desarrolladas pensando en la interoperabilidad. Ofrecemos APIs e integraciones con los principales sistemas del mercado."
+                    }
+                ]
+            }
+        },
+        "noResults": {
+            "title": "No se encontraron resultados",
+            "message": "Intente buscar con otras palabras o contáctenos"
+        },
+        "contact": {
+            "title": "¿Aún tiene preguntas?",
+            "message": "Nuestro equipo está listo para ayudar con cualquier pregunta adicional",
+            "buttons": {
+                "contact": "Contáctenos",
+                "email": "Enviar un Email"
+            }
+        }
+    }
+}

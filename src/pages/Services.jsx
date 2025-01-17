@@ -1,158 +1,170 @@
 // src/pages/Services.jsx
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '../context/theme/ThemeContext';
+import { Monitor, Users, Check } from 'lucide-react';
+import ServiceCard from '../components/sections/ServiceCard';
 import { services } from '../lib/constants';
-import ServiceCategory from '../components/services/ServiceCategory';
-import ServiceHighlight from '../components/services/ServiceHighlight';
-import IntegrationDiagram from '../components/services/IntegrationDiagram';
-import ServiceCalculator from '../components/services/ServiceCalculator';
-import SEO from '../components/utils/SEO';
 
 const Services = () => {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
+    const { theme } = useTheme();
+    const { t } = useTranslation();
+
+    const valueProps = [
+        {
+            id: 'integration',
+            icon: Monitor,
+            color: 'blue'
+        },
+        {
+            id: 'flexibility',
+            icon: Users,
+            color: 'green'
+        },
+        {
+            id: 'scalability',
+            icon: Check,
+            color: 'purple'
         }
+    ];
+
+    const getColorClasses = (color) => {
+        const baseClasses = theme === 'dark' ? {
+            blue: 'bg-blue-900 text-blue-400',
+            green: 'bg-green-900 text-green-400',
+            purple: 'bg-purple-900 text-purple-400'
+        } : {
+            blue: 'bg-blue-50 text-blue-600',
+            green: 'bg-green-50 text-green-600',
+            purple: 'bg-purple-50 text-purple-600'
+        };
+        return baseClasses[color];
     };
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5
-            }
-        }
-    };
+    const bgClass = theme === 'dark' ? 'bg-gray-900' : 'bg-gray-50';
+    const textClass = theme === 'dark' ? 'text-white' : 'text-gray-900';
+    const cardBgClass = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
 
     return (
-        <>
-            <SEO
-                title="Serviços Align - Soluções Integradas de Comunicação"
-                description="Conheça nosso portfólio completo de serviços de comunicação empresarial, desde desenvolvimento até suporte ao cliente."
-            />
-
-            {/* Hero Section */}
-            <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
-                <div className="container-custom">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <motion.h1
-                            className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            Soluções Completas para
-                            <span className="text-primary-600"> Sua Empresa</span>
-                        </motion.h1>
-                        <motion.p
-                            className="text-xl text-gray-600 mb-8"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                        >
-                            Da comunicação interna ao atendimento ao cliente, oferecemos serviços
-                            integrados que impulsionam a eficiência e os resultados do seu negócio.
-                        </motion.p>
-                        <motion.div
-                            className="flex flex-wrap justify-center gap-4"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                            <a href="#calculator" className="btn btn-primary">
-                                Calcular Economia
-                            </a>
-                            <Link to="/contact" className="btn btn-secondary">
-                                Falar com Especialista
-                            </Link>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Service Categories Grid */}
-            <section className="py-16">
-                <div className="container-custom">
-                    <motion.div
-                        variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
+        <section className={`section ${bgClass}`}>
+            <div className="container-custom">
+                {/* Section Header */}
+                <div className="text-center max-w-3xl mx-auto mb-12">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                        className={`text-3xl sm:text-4xl font-bold ${textClass} mb-4`}
                     >
-                        {services.map((service) => (
+                        {t('services.section.title')}
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}
+                    >
+                        {t('services.section.subtitle')}
+                    </motion.p>
+                </div>
+
+                {/* Quick Value Props */}
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                    {valueProps.map((prop, index) => {
+                        const Icon = prop.icon;
+                        return (
                             <motion.div
-                                key={service.id}
-                                variants={itemVariants}
+                                key={prop.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className={`${cardBgClass} p-6 rounded-xl text-center`}
                             >
-                                <ServiceCategory service={service} />
+                                <div className={`w-12 h-12 ${getColorClasses(prop.color)} rounded-lg flex items-center justify-center mx-auto mb-4`}>
+                                    <Icon className="h-6 w-6" />
+                                </div>
+                                <h3 className={`text-lg font-semibold ${textClass} mb-2`}>
+                                    {t(`services.valueProps.${prop.id}.title`)}
+                                </h3>
+                                <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
+                                    {t(`services.valueProps.${prop.id}.description`)}
+                                </p>
                             </motion.div>
-                        ))}
-                    </motion.div>
+                        );
+                    })}
                 </div>
-            </section>
 
-            {/* Integration Diagram */}
-            <section className="py-16 bg-gray-50">
-                <div className="container-custom">
-                    <div className="text-center max-w-3xl mx-auto mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                            Serviços que Trabalham em Sintonia
-                        </h2>
-                        <p className="text-lg text-gray-600">
-                            Entenda como nossos serviços se integram para criar uma solução completa
-                            e eficiente para sua empresa
-                        </p>
-                    </div>
-                    <IntegrationDiagram />
-                </div>
-            </section>
+                {/* Services Grid */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                >
+                    {services.map((service, index) => (
+                        <ServiceCard
+                            key={service.id}
+                            service={service}
+                        />
+                    ))}
+                </motion.div>
 
-            {/* Service Highlights */}
-            <section className="py-16">
-                <div className="container-custom">
-                    <ServiceHighlight />
-                </div>
-            </section>
+                {/* Integration Message */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className={`mt-12 ${cardBgClass} rounded-xl shadow-sm p-8 text-center`}
+                >
+                    <h3 className={`text-2xl font-bold ${textClass} mb-4`}>
+                        {t('services.integration.title')}
+                    </h3>
+                    <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto mb-6`}>
+                        {t('services.integration.description')}
+                    </p>
+                    <Link
+                        to="/contact"
+                        className={`btn ${theme === 'dark' ? 'btn-white' : 'btn-primary'} inline-flex items-center`}
+                    >
+                        {t('services.integration.cta')}
+                    </Link>
+                </motion.div>
 
-            {/* Service Calculator */}
-            <section id="calculator" className="py-16 bg-gray-50">
-                <div className="container-custom">
-                    <ServiceCalculator />
+                {/* Quick Start Guide */}
+                <div className="mt-12 grid md:grid-cols-3 gap-6">
+                    {['consultation', 'plan', 'implementation'].map((step, index) => (
+                        <motion.div
+                            key={step}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className={`${cardBgClass} p-6 rounded-xl`}
+                        >
+                            <div className={`w-8 h-8 ${
+                                theme === 'dark' ? 'bg-primary-900' : 'bg-primary-100'
+                            } rounded-full flex items-center justify-center mb-4`}>
+                                <span className={`text-sm font-bold ${
+                                    theme === 'dark' ? 'text-primary-400' : 'text-primary-600'
+                                }`}>
+                                    {index + 1}
+                                </span>
+                            </div>
+                            <h4 className={`text-lg font-semibold ${textClass} mb-2`}>
+                                {t(`services.quickStart.${step}.title`)}
+                            </h4>
+                            <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
+                                {t(`services.quickStart.${step}.description`)}
+                            </p>
+                        </motion.div>
+                    ))}
                 </div>
-            </section>
-
-            {/* Bottom CTA */}
-            <section className="py-16 bg-primary-900 text-white">
-                <div className="container-custom">
-                    <div className="text-center max-w-3xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-6">
-                            Pronto para Transformar sua Comunicação?
-                        </h2>
-                        <p className="text-lg text-primary-100 mb-8">
-                            Agende uma consulta gratuita e descubra como nossos serviços podem
-                            impulsionar os resultados da sua empresa.
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <Link to="/contact" className="btn btn-white">
-                                Agendar Consulta
-                            </Link>
-                            <a href="#calculator" className="btn btn-outline-white">
-                                Calcular ROI
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </>
+            </div>
+        </section>
     );
 };
 

@@ -1,39 +1,38 @@
-// src/components/sections/TrustedBy.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '../../context/theme/ThemeContext';
 
 const certifications = [
     {
-        name: 'ISO 27001',
-        logo: '/certifications/iso27001.svg',
-        description: 'Certificação em Segurança da Informação'
+        id: 'iso27001',
+        logo: '/certifications/iso27001.svg'
     },
     {
-        name: 'LGPD Compliant',
-        logo: '/certifications/lgpd.svg',
-        description: 'Em conformidade com a Lei Geral de Proteção de Dados'
+        id: 'lgpd',
+        logo: '/certifications/lgpd.svg'
     },
     {
-        name: 'SOC 2',
-        logo: '/certifications/soc2.svg',
-        description: 'Service Organization Control 2'
+        id: 'soc2',
+        logo: '/certifications/soc2.svg'
     }
 ];
 
 const associations = [
     {
-        name: 'ABES',
-        logo: '/associations/abes.svg',
-        description: 'Associação Brasileira das Empresas de Software'
+        id: 'abes',
+        logo: '/associations/abes.svg'
     },
     {
-        name: 'Brasscom',
-        logo: '/associations/brasscom.svg',
-        description: 'Associação Brasileira das Empresas de Tecnologia da Informação e Comunicação'
+        id: 'brasscom',
+        logo: '/associations/brasscom.svg'
     }
 ];
 
 const TrustedBy = () => {
+    const { theme } = useTheme();
+    const { t } = useTranslation();
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -49,53 +48,60 @@ const TrustedBy = () => {
         visible: {
             opacity: 1,
             y: 0,
-            transition: {
-                duration: 0.5
-            }
+            transition: { duration: 0.5 }
         }
     };
 
+    const bgClass = theme === 'dark' ? 'bg-gray-900' : 'bg-gray-50';
+    const textClass = theme === 'dark' ? 'text-white' : 'text-gray-900';
+    const cardBgClass = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
+    const borderClass = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
+    const logoClass = theme === 'dark' ? 'brightness-90' : 'brightness-100';
+
     return (
-        <section className="py-12 bg-gray-50">
+        <section className={`py-12 ${bgClass}`}>
             <div className="container-custom">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true }}
                 >
-                    {/* Título da Seção */}
+                    {/* Header */}
                     <div className="text-center mb-12">
-                        <h2 className="text-2xl font-semibold text-gray-900">
-                            Excelência Reconhecida
+                        <h2 className={`text-2xl font-semibold ${textClass}`}>
+                            {t('trustedBy.title')}
                         </h2>
+                        <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
+                            {t('trustedBy.subtitle')}
+                        </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         {/* Certificações */}
                         <div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-6">
-                                Certificações
+                            <h3 className={`text-lg font-semibold ${textClass} mb-6`}>
+                                {t('trustedBy.certifications.title')}
                             </h3>
                             <div className="grid grid-cols-3 gap-6">
-                                {certifications.map((cert, index) => (
+                                {certifications.map((cert) => (
                                     <motion.div
-                                        key={cert.name}
+                                        key={cert.id}
                                         variants={itemVariants}
                                         className="flex flex-col items-center"
                                     >
-                                        <div className="w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center mb-3">
+                                        <div className={`w-20 h-20 ${cardBgClass} rounded-full shadow-sm flex items-center justify-center mb-3`}>
                                             <img
                                                 src={cert.logo}
-                                                alt={cert.name}
-                                                className="w-12 h-12 object-contain"
+                                                alt={t(`trustedBy.certifications.${cert.id}.name`)}
+                                                className={`w-12 h-12 object-contain ${logoClass}`}
                                             />
                                         </div>
-                                        <p className="text-sm font-medium text-gray-900 text-center">
-                                            {cert.name}
+                                        <p className={`text-sm font-medium ${textClass} text-center`}>
+                                            {t(`trustedBy.certifications.${cert.id}.name`)}
                                         </p>
-                                        <p className="text-xs text-gray-600 text-center mt-1">
-                                            {cert.description}
+                                        <p className={`text-xs ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} text-center mt-1`}>
+                                            {t(`trustedBy.certifications.${cert.id}.description`)}
                                         </p>
                                     </motion.div>
                                 ))}
@@ -104,28 +110,28 @@ const TrustedBy = () => {
 
                         {/* Associações */}
                         <div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-6">
-                                Associações
+                            <h3 className={`text-lg font-semibold ${textClass} mb-6`}>
+                                {t('trustedBy.associations.title')}
                             </h3>
                             <div className="grid grid-cols-2 gap-6">
-                                {associations.map((assoc, index) => (
+                                {associations.map((assoc) => (
                                     <motion.div
-                                        key={assoc.name}
+                                        key={assoc.id}
                                         variants={itemVariants}
                                         className="flex flex-col items-center"
                                     >
-                                        <div className="w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center mb-3">
+                                        <div className={`w-20 h-20 ${cardBgClass} rounded-full shadow-sm flex items-center justify-center mb-3`}>
                                             <img
                                                 src={assoc.logo}
-                                                alt={assoc.name}
-                                                className="w-12 h-12 object-contain"
+                                                alt={t(`trustedBy.associations.${assoc.id}.name`)}
+                                                className={`w-12 h-12 object-contain ${logoClass}`}
                                             />
                                         </div>
-                                        <p className="text-sm font-medium text-gray-900 text-center">
-                                            {assoc.name}
+                                        <p className={`text-sm font-medium ${textClass} text-center`}>
+                                            {t(`trustedBy.associations.${assoc.id}.name`)}
                                         </p>
-                                        <p className="text-xs text-gray-600 text-center mt-1">
-                                            {assoc.description}
+                                        <p className={`text-xs ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} text-center mt-1`}>
+                                            {t(`trustedBy.associations.${assoc.id}.description`)}
                                         </p>
                                     </motion.div>
                                 ))}
@@ -133,40 +139,25 @@ const TrustedBy = () => {
                         </div>
                     </div>
 
-                    {/* Métricas */}
-                    <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-                        <motion.div
-                            variants={itemVariants}
-                            className="text-center bg-white rounded-lg shadow-sm p-6"
-                        >
-                            <div className="text-3xl font-bold text-primary-600 mb-2">500+</div>
-                            <p className="text-sm text-gray-600">Projetos Entregues</p>
-                        </motion.div>
+                    {/* Commitment Section */}
+                    <motion.div
+                        variants={itemVariants}
+                        className={`mt-16 text-center ${cardBgClass} rounded-xl p-8 shadow-sm`}
+                    >
+                        <h3 className={`text-xl font-bold ${textClass} mb-4`}>
+                            {t('trustedBy.commitment.title')}
+                        </h3>
+                        <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
+                            {t('trustedBy.commitment.description')}
+                        </p>
 
-                        <motion.div
-                            variants={itemVariants}
-                            className="text-center bg-white rounded-lg shadow-sm p-6"
-                        >
-                            <div className="text-3xl font-bold text-primary-600 mb-2">15+</div>
-                            <p className="text-sm text-gray-600">Países Atendidos</p>
-                        </motion.div>
-
-                        <motion.div
-                            variants={itemVariants}
-                            className="text-center bg-white rounded-lg shadow-sm p-6"
-                        >
-                            <div className="text-3xl font-bold text-primary-600 mb-2">98%</div>
-                            <p className="text-sm text-gray-600">Satisfação dos Clientes</p>
-                        </motion.div>
-
-                        <motion.div
-                            variants={itemVariants}
-                            className="text-center bg-white rounded-lg shadow-sm p-6"
-                        >
-                            <div className="text-3xl font-bold text-primary-600 mb-2">4h</div>
-                            <p className="text-sm text-gray-600">Tempo Médio de Resposta</p>
-                        </motion.div>
-                    </div>
+                        {/* CTA Final */}
+                        <div className="mt-8">
+                            <a href="/contact" className={`btn ${theme === 'dark' ? 'btn-white' : 'btn-primary'}`}>
+                                {t('trustedBy.commitment.cta')}
+                            </a>
+                        </div>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

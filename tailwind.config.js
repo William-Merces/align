@@ -5,6 +5,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -31,7 +32,7 @@ export default {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
-        },
+        }
       },
       fontFamily: {
         sans: ['Inter var', 'sans-serif'],
@@ -42,6 +43,9 @@ export default {
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
+        'pulse-slow': 'pulse 3s linear infinite',
+        'bounce-slow': 'bounce 2s ease-in-out infinite',
+        'spin-slow': 'spin 3s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -51,12 +55,115 @@ export default {
         slideUp: {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        }
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+        '5xl': '2.5rem',
+      },
+      boxShadow: {
+        'inner-lg': 'inset 0 2px 4px 0 rgb(0 0 0 / 0.10)',
+        'highlight': '0 0 0 2px var(--tw-shadow-color)',
+      },
+      transitionDuration: {
+        '2000': '2000ms',
+        '3000': '3000ms',
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.900'),
+            maxWidth: '65ch',
+            a: {
+              color: theme('colors.primary.600'),
+              '&:hover': {
+                color: theme('colors.primary.700'),
+              },
+            },
+            'h1, h2, h3, h4': {
+              color: theme('colors.gray.900'),
+              'scroll-margin-top': '100px',
+            },
+            code: {
+              color: theme('colors.primary.600'),
+              backgroundColor: theme('colors.gray.100'),
+              paddingLeft: '4px',
+              paddingRight: '4px',
+              paddingTop: '2px',
+              paddingBottom: '2px',
+              borderRadius: '0.25rem',
+            },
+          },
         },
+        dark: {
+          css: {
+            color: theme('colors.gray.300'),
+            a: {
+              color: theme('colors.primary.400'),
+              '&:hover': {
+                color: theme('colors.primary.300'),
+              },
+            },
+            'h1, h2, h3, h4': {
+              color: theme('colors.white'),
+            },
+            code: {
+              color: theme('colors.primary.400'),
+              backgroundColor: theme('colors.gray.800'),
+            },
+          },
+        },
+      }),
+      screens: {
+        'xs': '475px',
+        '3xl': '1920px',
+      },
+      zIndex: {
+        '60': '60',
+        '70': '70',
+        '80': '80',
+        '90': '90',
+        '100': '100',
+      },
+      aspectRatio: {
+        'portrait': '3/4',
+        'landscape': '4/3',
       },
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
+    require('@tailwindcss/forms')({
+      strategy: 'class',
+    }),
     require('@tailwindcss/typography'),
+    function({ addVariant }) {
+      addVariant('supports-backdrop', '@supports (backdrop-filter: blur(0px))')
+      addVariant('supports-scrollbar', '@supports selector(::-webkit-scrollbar)')
+      addVariant('children', '& > *')
+      addVariant('scrollbar', '&::-webkit-scrollbar')
+      addVariant('scrollbar-track', '&::-webkit-scrollbar-track')
+      addVariant('scrollbar-thumb', '&::-webkit-scrollbar-thumb')
+    },
+    function({ addUtilities, theme, variants }) {
+      const newUtilities = {
+        '.text-shadow': {
+          textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        },
+        '.text-shadow-lg': {
+          textShadow: '0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08)',
+        },
+      }
+      addUtilities(newUtilities, variants('textShadow'))
+    },
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  experimental: {
+    optimizeUniversalDefaults: true,
+  },
 }

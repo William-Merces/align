@@ -1,0 +1,807 @@
+{
+    "common": {
+        "buttons": {
+            "learnMore": "Learn more",
+            "contact": "Contact us",
+            "schedule": "Schedule consultation",
+            "start": "Get started",
+            "download": "Download",
+            "share": "Share",
+            "getDetailedReport": "Get detailed report",
+            "recalculate": "Recalculate"
+        },
+        "hours": "hours",
+        "calculating": "Calculating...",
+        "loading": "Loading..."
+    },
+    "navigation": {
+        "services": "Services",
+        "howItWorks": "How It Works",
+        "whyAlign": "Why Align",
+        "contact": "Contact",
+        "blog": "Blog",
+        "about": "About"
+    },
+    "services": {
+        "section": {
+            "title": "Complete Solutions for Every Need",
+            "subtitle": "Discover how our expertise in different areas can boost your company's efficiency"
+        },
+        "valueProps": {
+            "integration": {
+                "title": "Complete Integration",
+                "description": "All services work in harmony to maximize results"
+            },
+            "flexibility": {
+                "title": "Total Flexibility",
+                "description": "Choose only the services your company needs now"
+            },
+            "scalability": {
+                "title": "Guaranteed Scalability",
+                "description": "Grow gradually as your needs increase"
+            }
+        },
+        "integration": {
+            "title": "Solutions That Work Together",
+            "description": "Each service is designed to work independently or in conjunction with others, enabling seamless integration and superior results",
+            "cta": "Consult a Specialist"
+        },
+        "quickStart": {
+            "consultation": {
+                "title": "Initial Consultation",
+                "description": "Free analysis of your current needs and challenges"
+            },
+            "plan": {
+                "title": "Custom Plan",
+                "description": "Development of a tailored solution for your company"
+            },
+            "implementation": {
+                "title": "Quick Implementation",
+                "description": "Operations start in days, not months"
+            }
+        },
+        "development": {
+            "title": "Development",
+            "description": "Agile and scalable development of web and mobile applications focusing on quality and performance",
+            "subServices": {
+                "0": "Frontend Development",
+                "1": "Backend Development",
+                "2": "Mobile Applications",
+                "3": "APIs and Integrations",
+                "4": "System Maintenance",
+                "5": "DevOps"
+            }
+        },
+        "customer-support": {
+            "title": "Customer Support",
+            "description": "Specialized technical support and customer service in multiple languages and channels",
+            "subServices": {
+                "0": "24/7 Technical Support",
+                "1": "Live Chat",
+                "2": "Help Desk",
+                "3": "Ticket Management",
+                "4": "Multilingual Support",
+                "5": "Satisfaction Analysis"
+            }
+        },
+        "video-editing": {
+            "title": "Video Editing",
+            "description": "Professional video production and editing for marketing, training, and corporate communication",
+            "subServices": {
+                "0": "Video Editing",
+                "1": "Motion Graphics",
+                "2": "2D Animation",
+                "3": "Subtitling",
+                "4": "Corporate Videos",
+                "5": "Social Media Content"
+            }
+        },
+        "marketing": {
+            "title": "Marketing",
+            "description": "Complete digital marketing strategies to increase your online presence and generate results",
+            "subServices": {
+                "0": "Digital Marketing",
+                "1": "SEO",
+                "2": "Social Media Management",
+                "3": "Email Marketing",
+                "4": "Content Marketing",
+                "5": "Analytics and Reports"
+            }
+        },
+        "project-management": {
+            "title": "Project Management",
+            "description": "Efficient project management with agile methodologies and focus on results",
+            "subServices": {
+                "0": "Agile Methodologies",
+                "1": "Team Management",
+                "2": "Strategic Planning",
+                "3": "Quality Control",
+                "4": "Risk Management",
+                "5": "Performance Reports"
+            }
+        },
+        "admin": {
+            "title": "Administrative",
+            "description": "Complete administrative support to optimize processes and increase productivity",
+            "subServices": {
+                "0": "Document Management",
+                "1": "Data Processing",
+                "2": "Executive Support",
+                "3": "Calendar Management",
+                "4": "Administrative Reports",
+                "5": "Event Organization"
+            }
+        },
+        "accounting": {
+            "title": "Accounting",
+            "description": "Accounting and financial services to keep your finances organized and compliant",
+            "subServices": {
+                "0": "General Accounting",
+                "1": "Financial Management",
+                "2": "Payroll",
+                "3": "Financial Reports",
+                "4": "Tax Compliance",
+                "5": "Tax Planning"
+            }
+        },
+        "design": {
+            "title": "Design",
+            "description": "Creative and professional design to strengthen your brand and visual communication",
+            "subServices": {
+                "0": "UI/UX Design",
+                "1": "Graphic Design",
+                "2": "Branding",
+                "3": "Web Design",
+                "4": "Corporate Materials",
+                "5": "Social Media Design"
+            }
+        },
+        "moreServices": "{{count}} more services"
+    },
+    "comparison": {
+        "title": "The Align Difference",
+        "subtitle": "Compare and discover why companies are choosing the Align model",
+        "headers": {
+            "feature": "Feature",
+            "traditional": "Traditional Model",
+            "align": "Align Model"
+        },
+        "traditional": "Traditional Model",
+        "align": "Align Model",
+        "categories": {
+            "integration": "Integration Process",
+            "flexibility": "Flexibility",
+            "team": "Team Management",
+            "costs": "Costs",
+            "support": "Support",
+            "scalability": "Scalability"
+        },
+        "descriptions": {
+            "traditional": {
+                "integration": "Slow and bureaucratic process",
+                "flexibility": "Long and rigid contracts",
+                "team": "Limited team control",
+                "costs": "High and unpredictable fixed costs",
+                "support": "Limited business hours support",
+                "scalability": "Complex expansion process"
+            },
+            "align": {
+                "integration": "Fast and efficient onboarding",
+                "flexibility": "Flexibility to adjust as needed",
+                "team": "Complete control over team and processes",
+                "costs": "Transparent and predictable costs",
+                "support": "24/7 dedicated support",
+                "scalability": "Quick and hassle-free scalability"
+            }
+        },
+        "cta": "Learn About Our Methodology",
+        "ctaSubtext": "Schedule a personalized demo for your company"
+    },
+    "integrationDiagram": {
+        "title": "Services Working in Harmony",
+        "subtitle": "Understand how our services integrate to create a complete and efficient solution for your company",
+        "benefits": {
+            "efficiency": {
+                "title": "Maximum Efficiency",
+                "description": "Optimized and integrated processes for higher productivity"
+            },
+            "synergy": {
+                "title": "Total Synergy",
+                "description": "All services work in perfect harmony"
+            },
+            "scalability": {
+                "title": "Scalability",
+                "description": "Grow according to your needs without complications"
+            }
+        },
+        "cta": "Learn About Our Methodology",
+        "ctaSubtext": "Schedule a demo and see how we can help your company"
+    },
+    "roiCalculator": {
+        "title": "ROI Calculator",
+        "subtitle": "Discover how much your company can save by optimizing communication",
+        "toggleCalculator": "Show/Hide Calculator",
+        "inputs": {
+            "teamSize": "Team Size",
+            "avgSalary": "Average Salary ($)",
+            "workHours": "Working Hours per Month",
+            "inefficiencyRate": "Inefficiency Rate (%)"
+        },
+        "results": {
+            "annualSavings": "Annual Savings",
+            "productivityGain": "Productivity Gain",
+            "roi": "Estimated ROI"
+        },
+        "cta": {
+            "title": "Want to know more?",
+            "subtitle": "Schedule a consultation and receive a detailed analysis",
+            "button": "Talk to a Specialist"
+        }
+    },
+    "productivityCalculator": {
+        "title": "Productivity Calculator",
+        "subtitle": "Discover how much time your team can save",
+        "categories": {
+            "meetings": {
+                "title": "Meetings"
+            },
+            "communication": {
+                "title": "Communication"
+            },
+            "documentation": {
+                "title": "Documentation"
+            }
+        },
+        "questions": {
+            "dailyMeetings": "Average number of meetings per day",
+            "avgMeetingDuration": "Average meeting duration (minutes)",
+            "unnecessaryMeetings": "% of meetings that could be emails",
+            "emailsPerDay": "Average number of emails per day",
+            "timePerEmail": "Average time per email (minutes)",
+            "chatMessages": "Daily time in chats (minutes)",
+            "docsPerWeek": "Documents produced per week",
+            "timePerDoc": "Average time per document (minutes)",
+            "revisionTime": "Time in revisions (minutes/week)"
+        },
+        "calculate": "Calculate Productivity",
+        "results": {
+            "summary": "Analysis Results",
+            "annualSavings": "Annual Time Savings",
+            "productivityGain": "Productivity Gain",
+            "potentialSavings": "Potential Savings"
+        }
+    },
+    "contactForm": {
+        "title": "Contact Us",
+        "subtitle": "Fill out the form below and we'll get back to you shortly",
+        "fields": {
+            "name": {
+                "label": "Full Name",
+                "required": "Name is required",
+                "minLength": "Name must be at least 3 characters"
+            },
+            "email": {
+                "label": "Business Email",
+                "required": "Email is required",
+                "invalid": "Invalid email"
+            },
+            "phone": {
+                "label": "Phone",
+                "required": "Phone is required",
+                "invalid": "Invalid phone number",
+                "placeholder": "(555) 555-5555"
+            },
+            "company": {
+                "label": "Company",
+                "required": "Company is required"
+            },
+            "services": {
+                "label": "Services of Interest",
+                "required": "Please select at least one service"
+            },
+            "message": {
+                "label": "Message",
+                "required": "Message is required",
+                "minLength": "Message must be at least 20 characters",
+                "placeholder": "Describe your needs and objectives..."
+            },
+            "consent": {
+                "label": "I agree to the processing of my data in accordance with the",
+                "privacyLink": "Privacy Policy",
+                "required": "You must accept the terms"
+            }
+        },
+        "submit": "Send Message",
+        "submitting": "Sending...",
+        "success": {
+            "title": "Message Sent!",
+            "message": "Thank you for contacting us. Our team will get back to you soon",
+            "newMessage": "Send Another Message"
+        }
+    },
+    "contact": {
+        "hero": {
+            "title": "Let's Transform Your Communication",
+            "subtitle": "Get in touch and discover how we can help your company achieve better results"
+        },
+        "methods": {
+            "phone": {
+                "title": "Call Us",
+                "description": "We're available to take your call",
+                "action": "Call Now"
+            },
+            "chat": {
+                "title": "Live Chat",
+                "description": "Chat in real-time with our team",
+                "action": "Start Chat"
+            },
+            "calendar": {
+                "title": "Schedule a Call",
+                "description": "Choose the best time to talk",
+                "action": "Schedule"
+            }
+        },
+        "form": {
+            "title": "Talk to a Specialist"
+        },
+        "hours": {
+            "title": "Business Hours",
+            "weekdays": "Monday to Friday: 9am to 6pm",
+            "saturday": "Saturday: 9am to 1pm",
+            "sunday": "Sunday: Closed"
+        },
+        "newsletter": {
+            "title": "Stay Up to Date",
+            "subtitle": "Receive exclusive content about business communication and Align news",
+            "placeholder": "Your best email",
+            "button": "Subscribe",
+            "disclaimer": "You can unsubscribe at any time"
+        },
+        "address": {
+            "formatted": "{{street}}, {{city}} - {{state}}, {{country}}, {{zip}}"
+        }
+    },
+    "diagnostic": {
+        "title": "Quick Diagnostic",
+        "subtitle": "Answer a few quick questions and discover how we can help your company",
+        "progress": "Question {{current}} of {{total}}",
+        "questions": {
+            "size": {
+                "title": "What's your company size?",
+                "options": [
+                    {
+                        "value": "small",
+                        "label": "1-10 employees"
+                    },
+                    {
+                        "value": "medium",
+                        "label": "11-50 employees"
+                    },
+                    {
+                        "value": "large",
+                        "label": "51-200 employees"
+                    },
+                    {
+                        "value": "enterprise",
+                        "label": "200+ employees"
+                    }
+                ]
+            },
+            "challenges": {
+                "title": "What are your main challenges?",
+                "options": [
+                    {
+                        "value": "efficiency",
+                        "label": "Operational efficiency"
+                    },
+                    {
+                        "value": "costs",
+                        "label": "High costs"
+                    },
+                    {
+                        "value": "quality",
+                        "label": "Service quality"
+                    },
+                    {
+                        "value": "scale",
+                        "label": "Scaling difficulties"
+                    }
+                ]
+            },
+            "services": {
+                "title": "Which services interest you the most?",
+                "options": [
+                    {
+                        "value": "development",
+                        "label": "Development"
+                    },
+                    {
+                        "value": "support",
+                        "label": "Customer Support"
+                    },
+                    {
+                        "value": "marketing",
+                        "label": "Marketing"
+                    },
+                    {
+                        "value": "management",
+                        "label": "Project Management"
+                    }
+                ]
+            }
+        },
+        "results": {
+            "title": "Personalized Recommendations",
+            "recommendations": {
+                "size": {
+                    "title": "Based on your company size",
+                    "small": "Our solutions are perfectly sized for small businesses",
+                    "medium": "We have expertise in helping medium-sized companies grow",
+                    "large": "Our platform is ideal for large companies",
+                    "enterprise": "We have complete enterprise solutions for your needs"
+                },
+                "challenges": {
+                    "title": "For your specific challenges",
+                    "efficiency": "We can optimize your processes and increase efficiency",
+                    "costs": "Our solutions can significantly reduce your costs",
+                    "quality": "We guarantee the highest quality in all services",
+                    "scale": "Our platform is designed to scale with your growth"
+                },
+                "services": {
+                    "title": "Recommended services",
+                    "development": "Our development team is ready to help",
+                    "support": "We can transform your customer support",
+                    "marketing": "Our marketing solutions generate real results",
+                    "management": "Our project management is a market reference"
+                }
+            },
+            "cta": {
+                "contact": "Talk to a Specialist",
+                "restart": "Restart Diagnostic"
+            }
+        },
+        "back": "Back",
+        "disclaimer": "Free analysis with no commitment. Your data is protected and will not be shared"
+    },
+    "benefits": {
+        "title": "Benefits that Transform Your Business",
+        "subtitle": "Discover how our integrated solution can boost efficiency and results for your company",
+        "items": {
+            "communication": {
+                "title": "More efficient communication",
+                "description": "Reduce noise and increase clarity in communication between teams and departments"
+            },
+            "costs": {
+                "title": "Reduced operational costs",
+                "description": "Optimize resources and reduce unnecessary expenses with more efficient processes"
+            },
+            "productivity": {
+                "title": "Increased productivity",
+                "description": "Speed up deliveries and improve results with optimized and integrated processes"
+            },
+            "engagement": {
+                "title": "Greater engagement",
+                "description": "Promote better collaboration and motivation among teams with clear communication"
+            },
+            "processes": {
+                "title": "Optimized processes",
+                "description": "Automate and simplify workflows for greater operational efficiency"
+            },
+            "support": {
+                "title": "Multilingual support",
+                "description": "Communicate effectively with teams and clients in different languages and cultures"
+            }
+        },
+        "stats": {
+            "efficiency": {
+                "value": "40%",
+                "label": "Reduction in response time"
+            },
+            "satisfaction": {
+                "value": "98%",
+                "label": "Customer satisfaction"
+            },
+            "roi": {
+                "value": "3x",
+                "label": "Return on investment"
+            }
+        },
+        "cta": "Calculate Your Savings",
+        "ctaSubtext": "Use our ROI calculator to discover your potential savings"
+    },
+    "hero": {
+        "title": "Outsource intelligently.",
+        "titleHighlight": "Grow faster.",
+        "subtitle": "Specialized teams in development, support, and management for companies that want to grow without increasing fixed costs:",
+        "highlights": {
+            "efficiency": "Save up to 40% on operational costs",
+            "implementation": "Dedicated team in up to 15 business days",
+            "scalability": "Flexibility to scale according to your needs"
+        },
+        "urgencyBadge": "Free consultations available this month",
+        "cta": {
+            "primary": "Talk to a Specialist",
+            "secondary": "See All Services"
+        },
+        "form": {
+            "title": "Request a proposal",
+            "subtitle": "Receive a personalized analysis with savings estimate for your company"
+        },
+        "benefits": {
+            "speed": {
+                "value": "15 days",
+                "description": "From proposal to operations start"
+            },
+            "support": {
+                "value": "24/7",
+                "description": "Dedicated support for your team"
+            },
+            "guarantee": {
+                "value": "0 risk",
+                "description": "Satisfaction guaranteed or your money back"
+            }
+        }
+    },
+    "howItWorks": {
+        "title": "How It Works",
+        "subtitle": "A transparent and efficient process to ensure the best results",
+        "steps": {
+            "analysis": {
+                "title": "Initial Analysis",
+                "description": "We understand your specific needs and objectives",
+                "details": {
+                    "1": "Requirements assessment",
+                    "2": "Current process analysis",
+                    "3": "Opportunity identification"
+                }
+            },
+            "proposal": {
+                "title": "Custom Proposal",
+                "description": "We develop a tailored solution for your business",
+                "details": {
+                    "1": "Scope definition",
+                    "2": "Resource planning",
+                    "3": "Detailed timeline"
+                }
+            },
+            "implementation": {
+                "title": "Implementation",
+                "description": "We start project execution with agile methodology",
+                "details": {
+                    "1": "Structured onboarding",
+                    "2": "Initial training",
+                    "3": "Team integration"
+                }
+            },
+            "monitoring": {
+                "title": "Monitoring",
+                "description": "We track metrics and optimize results",
+                "details": {
+                    "1": "Custom KPIs",
+                    "2": "Regular reports",
+                    "3": "Continuous improvements"
+                }
+            }
+        },
+        "benefits": {
+            "title": "Perfect Integration",
+            "subtitle": "Our methodology was developed to perfectly adapt to your processes",
+            "items": {
+                "flexibility": {
+                    "title": "Flexibility",
+                    "description": "We adapt our solution to your specific needs"
+                },
+                "scalability": {
+                    "title": "Scalability",
+                    "description": "We grow with your company, adjusting resources as needed"
+                },
+                "transparency": {
+                    "title": "Transparency",
+                    "description": "Clear tracking of metrics and results in real-time"
+                }
+            }
+        },
+        "cta": {
+            "button": "Get Started",
+            "subtext": "No commitment - Understand how we can help your company"
+        }
+    },
+    "trustedBy": {
+        "title": "Quality and Security Assurance",
+        "subtitle": "Our commitment to excellence is backed by certifications and strategic partnerships",
+        "certifications": {
+            "title": "Security Certifications",
+            "iso27001": {
+                "name": "NIST Cybersecurity",
+                "description": "National Institute of Standards & Technology Framework Compliance"
+            },
+            "hipaa": {
+                "name": "HIPAA Compliant",
+                "description": "Health Insurance Portability and Accountability Act Compliance"
+            },
+            "soc2": {
+                "name": "SOC 2 Type II",
+                "description": "AICPA Service Organization Control 2 Type II Certified"
+            }
+        },
+        "associations": {
+            "title": "Strategic Partnerships",
+            "compTIA": {
+                "name": "CompTIA",
+                "description": "Computing Technology Industry Association Member"
+            },
+            "cta": {
+                "name": "CTA",
+                "description": "Consumer Technology Association Member"
+            }
+        },
+        "commitment": {
+            "title": "Our Commitment",
+            "description": "We work constantly to maintain the highest standards of quality and security, ensuring your company has the best possible experience",
+            "cta": "Learn About Our Methodology"
+        }
+    },
+    "blog": {
+        "title": "Blog",
+        "subtitle": "Articles and news about business communication, technology and market trends",
+        "searchPlaceholder": "Search article...",
+        "categories": {
+            "all": "All",
+            "business": "Business",
+            "technology": "Technology",
+            "marketing": "Marketing",
+            "productivity": "Productivity"
+        },
+        "popular": {
+            "title": "Popular Articles",
+            "subtitle": "Most read topics by our readers",
+            "readMore": "Read More"
+        },
+        "latest": {
+            "title": "Latest Articles",
+            "subtitle": "Latest content in our blog",
+            "readMore": "Read More"
+        },
+        "newsletter": {
+            "title": "Stay Up to Date",
+            "subtitle": "Receive exclusive content and updates directly in your email",
+            "placeholder": "Your best email",
+            "button": "Subscribe",
+            "disclaimer": "You can unsubscribe at any time"
+        }
+    },
+    "footer": {
+        "company": {
+            "title": "Company",
+            "about": "About Us",
+            "services": "Services",
+            "contact": "Contact",
+            "blog": "Blog"
+        },
+        "services": {
+            "title": "Services",
+            "development": "Development",
+            "support": "Customer Support",
+            "marketing": "Marketing",
+            "management": "Project Management",
+            "admin": "Administrative",
+            "accounting": "Accounting",
+            "design": "Design"
+        },
+        "contact": {
+            "title": "Contact Us",
+            "phone": "Call Us",
+            "email": "Send us an Email",
+            "address": "Visit Us"
+        },
+        "newsletter": {
+            "title": "Subscribe",
+            "subtitle": "Receive news and exclusive content",
+            "placeholder": "Your best email",
+            "button": "Subscribe"
+        },
+        "privacy": {
+            "title": "Privacy",
+            "policy": "Privacy Policy",
+            "terms": "Terms of Use"
+        }
+    },
+    "header": {
+        "cta": "Talk to a Specialist",
+        "menu": {
+            "services": "Services",
+            "howItWorks": "How It Works",
+            "whyAlign": "Why Align",
+            "contact": "Contact",
+            "blog": "Blog",
+            "about": "About Us"
+        }
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Find answers to the main questions about our services",
+        "searchPlaceholder": "Search question...",
+        "categories": {
+            "services": {
+                "title": "Our Services",
+                "questions": [
+                    {
+                        "question": "What services does Align offer?",
+                        "answer": "Align offers a complete range of services including Development, Customer Support, Video Editing, Marketing, Project Management, Admin, Accounting, and Design. Each service is customized to meet the specific needs of the client."
+                    },
+                    {
+                        "question": "How do you ensure service quality?",
+                        "answer": "We maintain rigorous quality control processes, including constant monitoring, regular feedback, and continuous team training. We also use specific metrics and KPIs for each service."
+                    },
+                    {
+                        "question": "Can I hire just one specific service?",
+                        "answer": "Yes, our services can be contracted individually or together, depending on your needs. We offer flexibility to adapt our services to your business model."
+                    }
+                ]
+            },
+            "pricing": {
+                "title": "Pricing and Plans",
+                "questions": [
+                    {
+                        "question": "How does the pricing model work?",
+                        "answer": "We work with a transparent pricing model based on services used and demand volume. We offer flexible plans that can be adjusted according to your needs."
+                    },
+                    {
+                        "question": "Is there a minimum contract period?",
+                        "answer": "We offer different contract modalities to meet each client's needs. Contact us to discuss the best option for your company."
+                    },
+                    {
+                        "question": "What payment methods are accepted?",
+                        "answer": "We accept various payment methods, including credit card, bank transfer, and wire transfer. Payments are processed monthly based on services used."
+                    }
+                ]
+            },
+            "support": {
+                "title": "Support",
+                "questions": [
+                    {
+                        "question": "How does support work?",
+                        "answer": "We offer 24/7 support through multiple channels (chat, email, phone). Our team is always available to help with any questions or needs."
+                    },
+                    {
+                        "question": "What's the average response time?",
+                        "answer": "Our average first response time is 4 hours, with most cases resolved within 24 hours. Critical cases have priority and immediate attention."
+                    },
+                    {
+                        "question": "Is support offered in other languages?",
+                        "answer": "Yes, our team is multilingual and can provide support in various languages, including Portuguese, English, and Spanish."
+                    }
+                ]
+            },
+            "technical": {
+                "title": "Technical Questions",
+                "questions": [
+                    {
+                        "question": "What technologies do you use?",
+                        "answer": "We use the most modern and secure technologies in the market, always updated with the latest trends. Our stack includes enterprise-grade tools to ensure the best performance."
+                    },
+                    {
+                        "question": "How do you ensure data security?",
+                        "answer": "We follow strict security protocols, including end-to-end encryption, regular backups, and compliance with GDPR and other data protection regulations."
+                    },
+                    {
+                        "question": "Is it possible to integrate with other systems?",
+                        "answer": "Yes, our solutions are developed with interoperability in mind. We offer APIs and integrations with major market systems."
+                    }
+                ]
+            }
+        },
+        "noResults": {
+            "title": "No results found",
+            "message": "Try searching with different words or contact us"
+        },
+        "contact": {
+            "title": "Still have questions?",
+            "message": "Our team is ready to help with any additional questions",
+            "buttons": {
+                "contact": "Contact Us",
+                "email": "Send an Email"
+            }
+        }
+    }
+}
