@@ -1,16 +1,33 @@
-// src/components/layout/Navigation.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { routes } from '../../config/routes';
 
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { t, i18n } = useTranslation();
+    
+    // Obtém as rotas do idioma atual
+    const currentRoutes = routes[i18n.language] || routes.en;
 
     const menuItems = [
-        { label: 'Serviços', href: '/services' },
-        { label: 'Como Funciona', href: '/how-it-works' },
-        { label: 'Por que a Align', href: '/why-align' },
-        { label: 'Contato', href: '/contact' },
+        { 
+            label: t('navigation.services'), 
+            href: currentRoutes.services 
+        },
+        { 
+            label: t('navigation.howItWorks'), 
+            href: currentRoutes.howItWorks 
+        },
+        { 
+            label: t('navigation.whyAlign'), 
+            href: currentRoutes.whyAlign 
+        },
+        { 
+            label: t('navigation.contact'), 
+            href: currentRoutes.contact 
+        },
     ];
 
     return (
@@ -53,11 +70,11 @@ const Navigation = () => {
                             </Link>
                         ))}
                         <Link
-                            to="/contact"
+                            to={currentRoutes.contact}
                             className="btn btn-primary w-full text-center"
                             onClick={() => setIsOpen(false)}
                         >
-                            Fale com um Especialista
+                            {t('common.buttons.contact')}
                         </Link>
                     </div>
                 </div>
